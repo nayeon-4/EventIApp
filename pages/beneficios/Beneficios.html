@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EventIApp | Beneficios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../shared.css" />
+  <style>
+    /* ---- BENEFICIOS PAGE STYLES ---- */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+      margin-bottom: 60px;
+    }
+    .benefit-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--cream-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .benefit-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+    .benefit-card.b1 { border-top: 4px solid #A16300; }
+    .benefit-card.b2 { border-top: 4px solid #4E1481; }
+    .benefit-card.b3 { border-top: 4px solid #106013; }
+    .benefit-card.b4 { border-top: 4px solid #7D7D09; }
+    .benefit-card.b5 { border-top: 4px solid #007B88; }
+    .benefit-card.b6 { border-top: 4px solid #A30000; }
+    .benefit-icon { width: 80px; height: 80px; object-fit: contain; }
+    .benefit-icon-fallback { font-size: 3rem; }
+    .benefit-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--blue); }
+    .benefit-desc { font-size: .92rem; color: var(--text-mid); line-height: 1.65; }
+    .benefit-extra {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 28px 36px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--cream-dark);
+      text-align: center;
+      max-width: 480px;
+      margin: 0 auto 80px;
+    }
+    .benefit-extra p { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--blue); }
+
+    /* FAQ */
+    .faq-section { background: linear-gradient(to bottom, var(--white), #FDFFE5); padding: 80px 24px; }
+    .faq-search {
+      background: var(--white);
+      border: 2px solid var(--cream-dark);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .faq-search:focus-within { border-color: var(--blue-mid); box-shadow: 0 0 0 3px rgba(47,95,168,.1); }
+    .faq-search img { width: 22px; height: 22px; object-fit: contain; opacity: .5; flex-shrink: 0; }
+    .faq-search input { border: none; outline: none; font-family: var(--font-body); font-size: .95rem; width: 100%; background: transparent; color: var(--text-dark); }
+    .faq-search input::placeholder { color: var(--text-light); }
+    .faq-list { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { background: var(--white); border-radius: var(--radius); border: 1px solid var(--cream-dark); overflow: hidden; }
+    .faq-question {
+      width: 100%; text-align: left; padding: 18px 24px;
+      font-family: var(--font-body); font-size: .95rem; font-weight: 600; color: var(--text-dark);
+      background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+      transition: background .2s;
+    }
+    .faq-question:hover { background: var(--cream); }
+    .faq-question .faq-arrow { font-size: .8rem; color: var(--orange); transition: transform .3s; }
+    .faq-question[aria-expanded="true"] .faq-arrow { transform: rotate(180deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .3s; }
+    .faq-answer.open { max-height: 300px; }
+    .faq-answer p { padding: 0 24px 18px; font-size: .9rem; color: var(--text-mid); line-height: 1.7; }
+
+    /* CTA */
+    .benefits-cta { padding: 80px 24px; background: linear-gradient(135deg, var(--blue), var(--blue-mid)); text-align: center; }
+    .benefits-cta h2 { font-family: var(--font-display); font-size: clamp(1.6rem,3vw,2.4rem); color: var(--white); margin-bottom: 16px; }
+    .benefits-cta p { color: rgba(255,255,255,.7); margin-bottom: 32px; font-size: 1rem; }
+    .benefits-cta .btn-outline { border-color: rgba(255,255,255,.5); color: var(--white); }
+    .benefits-cta .btn-outline:hover { background: rgba(255,255,255,.15); }
+    .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    @media (max-width: 600px) {
+      .benefits-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../home/index.html" class="nav-logo">
+        <img src="../../assets/images/Imagotipo.png" alt="EventIApp" class="nav-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <span class="nav-logo-fallback">🎯 EventI<strong>App</strong></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="../home/index.html" class="nav-link">Inicio</a>
+        <a href="../nosotros/Nosotros.html" class="nav-link">Nosotros</a>
+        <a href="Beneficios.html" class="nav-link active">Beneficios</a>
+        <a href="../contacto/AyudaYcontacto.html" class="nav-link">Contacto</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="../auth/login.html" class="btn-outline">Iniciar sesión</a>
+        <a href="../auth/register.html" class="btn-primary">Empieza gratis</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <div class="page-hero-label">¿Por qué elegirnos?</div>
+      <h1 class="page-hero-title">Beneficios de trabajar<br/>con EventIApp</h1>
+      <p class="page-hero-sub">Todo lo que necesitas para llevar tu proyecto al siguiente nivel, en una sola plataforma.</p>
+      <a href="../auth/register.html" class="btn-primary btn-lg">Empieza gratis</a>
+    </div>
+  </section>
+
+  <!-- BENEFITS GRID -->
+  <section style="padding: 80px 24px; background: var(--cream);">
+    <div class="section-container">
+      <div class="benefits-grid">
+
+        <div class="benefit-card b1">
+          <img src="../../assets/icons/Calendario.png" alt="Planificación" class="benefit-icon" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+          <span class="benefit-icon-fallback" style="display:none;">📅</span>
+          <div class="benefit-title">Planificación y organización centralizada</div>
+          <p class="benefit-desc">Organiza tus eventos, tareas y recursos en un solo lugar de forma sencilla. Cronogramas, checklists y equipos sincronizados al instante.</p>
+        </div>
+
+        <div class="benefit-card b2">
+          <img src="../../assets/icons/Cerebro.png" alt="IA" class="benefit-icon" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+          <span class="benefit-icon-fallback" style="display:none;">🧠</span>
+          <div class="benefit-title">Recomendaciones y asistencia con IA personalizada</div>
+          <p class="benefit-desc">Obtén sugerencias inteligentes y personalizadas para tomar mejores decisiones en cada etapa de tu evento.</p>
+        </div>
+
+        <div class="benefit-card b3">
+          <img src="../../assets/icons/Reloj.png" alt="Tiempo" class="benefit-icon" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+          <span class="benefit-icon-fallback" style="display:none;">⏱️</span>
+          <div class="benefit-title">Ahorro de tiempo útil</div>
+          <p class="benefit-desc">Automatiza procesos y enfócate en lo que realmente hace crecer tu proyecto. Menos papeleo, más resultados.</p>
+        </div>
+
+        <div class="benefit-card b4">
+          <img src="../../assets/icons/Money.png" alt="Resultados" class="benefit-icon" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+          <span class="benefit-icon-fallback" style="display:none;">💰</span>
+          <div class="benefit-title">Resultados en tiempo récord</div>
+          <p class="benefit-desc">Conecta con empresarios o inversores y comienza a capitalizar de forma breve. Tu red de contactos crece con cada evento.</p>
+        </div>
+
+        <div class="benefit-card b5">
+          <img src="../../assets/icons/Diamante.png" alt="Exclusivo" class="benefit-icon" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+          <span class="benefit-icon-fallback" style="display:none;">💎</span>
+          <div class="benefit-title">Acceso a funciones exclusivas</div>
+          <p class="benefit-desc">Obtén excelentes resultados gratis y mejores con nuestros planes de pago. Desbloquea herramientas premium cuando las necesites.</p>
+        </div>
+
+        <div class="benefit-card b6">
+          <img src="../../assets/icons/Lock.png" alt="Seguridad" class="benefit-icon" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+          <span class="benefit-icon-fallback" style="display:none;">🔒</span>
+          <div class="benefit-title">Seguimiento constante y seguro</div>
+          <p class="benefit-desc">Sé atendido por nuestro personal y confía en la protección de tu información personal con estándares de seguridad bancaria.</p>
+        </div>
+
+      </div>
+
+      <div class="benefit-extra">
+        <p>✨ Y mucho más...</p>
+        <p style="font-size:.9rem;color:var(--text-mid);font-family:var(--font-body);font-weight:400;margin-top:8px;">Nuevas funciones se añaden cada mes basadas en el feedback de nuestra comunidad.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="section-container">
+      <div class="section-label">¿Tienes dudas?</div>
+      <h2 class="section-title">Preguntas Frecuentes</h2>
+      <p style="text-align:center;color:var(--text-mid);margin-bottom:36px;">Resuelve tus dudas con nuestra ayuda automática</p>
+
+      <div class="faq-search">
+        <img src="../../assets/icons/Lupa.png" alt="Buscar" onerror="this.outerHTML='🔍';" />
+        <input type="text" placeholder="Pregunta o ingresa una palabra clave..." id="faqSearch" aria-label="Buscar preguntas frecuentes" />
+      </div>
+
+      <div class="faq-list" id="faqList">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            ¿Qué tan segura y confiable es EventIApp?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>EventIApp usa cifrado SSL de 256 bits para proteger todos tus datos. Nunca compartimos información personal sin tu consentimiento explícito. Contamos con backups automáticos diarios y cumplimos con estándares internacionales de privacidad.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            ¿Qué funciones de pago ofrecen?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Los planes Pro (S/ 29/mes) y Equipo (S/ 79/mes) incluyen: eventos ilimitados, IA de recomendaciones avanzada, algoritmo preferencial para conectar con inversores, soporte prioritario 24/7, reportes detallados y acceso a integraciones premium.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            ¿Qué horarios de atención tienen?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Lunes a Sábado: 8am – 10pm. Domingos y Feriados: 10am – 3pm. Para usuarios Pro y Equipo ofrecemos soporte 24/7 por chat dentro de la plataforma.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            ¿Cómo funciona la aplicación y los perfiles?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Al registrarte eliges entre el rol de Emprendedor (organiza eventos y busca financiamiento) o Inversor (explora oportunidades y analiza startups). Cada rol tiene herramientas específicas diseñadas para sus objetivos.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            ¿Puedo usar EventIApp gratis?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Sí, el plan gratuito incluye hasta 3 eventos activos, checklist básico, gestión de hasta 50 asistentes y acceso al chat de equipo. Sin tarjeta de crédito requerida.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="benefits-cta">
+    <h2>¿Listo para organizar tu próximo gran evento?</h2>
+    <p>Únete a más de 150 organizadores que ya confían en EventIApp.</p>
+    <div class="cta-actions">
+      <a href="../auth/register.html" class="btn-primary btn-lg">Empieza gratis</a>
+      <a href="../../demo/demo.html" class="btn-outline btn-lg">Explorar la demo</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="../../assets/images/Imagotipo.png" alt="EventIApp" onerror="this.style.display='none';" />
+          <span class="footer-logo-text">EventI<strong>App</strong></span>
+        </div>
+        <p>La plataforma que conecta emprendedores e inversores para crear eventos, impulsar startups y generar oportunidades.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><img src="../../assets/icons/Facebook.png" alt="Facebook" /></a>
+          <a href="#" aria-label="X"><img src="../../assets/icons/X.png" alt="X" /></a>
+          <a href="#" aria-label="LinkedIn"><img src="../../assets/icons/LinkedIn.png" alt="LinkedIn" /></a>
+          <a href="#" aria-label="Instagram"><img src="../../assets/icons/Instagram.png" alt="Instagram" /></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">Navegación</div>
+          <a href="../home/index.html">Inicio</a>
+          <a href="Beneficios.html">Beneficios</a>
+          <a href="../contacto/AyudaYcontacto.html">Preguntas frecuentes</a>
+          <a href="../contacto/AyudaYcontacto.html">Contáctanos</a>
+          <a href="../auth/register.html">Registrarse</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Recursos</div>
+          <a href="#">Soporte</a>
+          <a href="#">Documentación</a>
+          <a href="#">Privacidad</a>
+          <a href="#">Términos de servicio</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Contacto</div>
+          <div class="footer-contact-item">
+            <img src="../../assets/icons/Mail.png" alt="Email" />
+            <span>contacto@eventiapp.pe</span>
+          </div>
+          <div class="footer-contact-item">
+            <img src="../../assets/icons/Telefono.png" alt="Teléfono" />
+            <span>+51 999 988 777</span>
+          </div>
+          <div class="footer-contact-item">
+            <img src="../../assets/icons/Ubicacion.png" alt="Ubicación" />
+            <span>Lima, Perú</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 EventIApp. Todos los derechos reservados. EventIApp no comparte información personal identificable sin consentimiento explícito.
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+    });
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        document.querySelectorAll('.faq-question').forEach(b => {
+          b.setAttribute('aria-expanded','false');
+          b.nextElementSibling.classList.remove('open');
+        });
+        if (!isOpen) {
+          btn.setAttribute('aria-expanded','true');
+          btn.nextElementSibling.classList.add('open');
+        }
+      });
+    });
+
+    // FAQ search filter
+    document.getElementById('faqSearch').addEventListener('input', function() {
+      const q = this.value.toLowerCase();
+      document.querySelectorAll('.faq-item').forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(q) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>

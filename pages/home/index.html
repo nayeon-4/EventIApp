@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EventIApp — Organiza eventos que inspiran</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="home.css" />
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="../../assets/images/Imagotipo.png" alt="EventIApp logo" class="nav-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <span class="nav-logo-fallback">🎯 EventI<strong>App</strong></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link active">Inicio</a>
+        <a href="../nosotros/Nosotros.html" class="nav-link">Nosotros</a>
+        <a href="../beneficios/Beneficios.html" class="nav-link">Beneficios</a>
+        <a href="../contacto/AyudaYcontacto.html" class="nav-link">Contacto</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="../auth/login.html" class="btn-outline">Iniciar sesión</a>
+        <a href="../auth/register.html" class="btn-primary">Registrarse gratis</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-circles" aria-hidden="true">
+      <div class="circle c1"></div>
+      <div class="circle c2"></div>
+      <div class="circle c3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">✨ La plataforma #1 para organizadores</div>
+      <h1 class="hero-title">
+        Organiza eventos<br/>
+        <em>que inspiran</em>
+      </h1>
+      <p class="hero-subtitle">
+        Desde la planificación hasta el análisis post-evento, EventIApp centraliza 
+        todo lo que necesitas: presupuesto, cronograma, proveedores, asistentes y mucho más.
+      </p>
+      <div class="hero-cta">
+        <a href="../auth/register.html" class="btn-primary btn-lg">
+          Empieza gratis
+        </a>
+        <a href="../../demo/demo.html" class="btn-ghost btn-lg">
+          Ver demo
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">+2,400</span>
+          <span class="stat-label">eventos organizados</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">98%</span>
+          <span class="stat-label">satisfacción</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">150+</span>
+          <span class="stat-label">organizadores activos</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="app-preview">
+        <div class="app-topbar">
+          <span class="app-dot red"></span>
+          <span class="app-dot yellow"></span>
+          <span class="app-dot green"></span>
+          <span class="app-title-bar">Dashboard — Mi Evento 2026</span>
+        </div>
+        <div class="app-body">
+          <div class="preview-card active-card">
+            <div class="preview-card-header">
+              <span class="preview-icon">📋</span>
+              <div>
+                <div class="preview-card-title">Conferencia Tech Lima</div>
+                <div class="preview-card-sub">12 Ago 2026 · Miraflores</div>
+              </div>
+              <span class="preview-badge">En curso</span>
+            </div>
+            <div class="preview-progress-wrap">
+              <div class="preview-progress-label">
+                <span>Checklist completado</span>
+                <span>72%</span>
+              </div>
+              <div class="preview-progress-bar">
+                <div class="preview-progress-fill" style="width:72%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="preview-grid">
+            <div class="preview-mini orange">
+              <div class="mini-icon">💰</div>
+              <div class="mini-label">Presupuesto</div>
+              <div class="mini-val">S/ 12,400</div>
+            </div>
+            <div class="preview-mini blue">
+              <div class="mini-icon">👥</div>
+              <div class="mini-label">Asistentes</div>
+              <div class="mini-val">248</div>
+            </div>
+            <div class="preview-mini green">
+              <div class="mini-icon">✅</div>
+              <div class="mini-label">Tareas</div>
+              <div class="mini-val">18/25</div>
+            </div>
+            <div class="preview-mini purple">
+              <div class="mini-icon">🤝</div>
+              <div class="mini-label">Proveedores</div>
+              <div class="mini-val">7</div>
+            </div>
+          </div>
+          <div class="preview-chat">
+            <div class="chat-msg left">
+              <div class="chat-avatar">A</div>
+              <div class="chat-bubble">¿Llegaron los equipos de audio?</div>
+            </div>
+            <div class="chat-msg right">
+              <div class="chat-bubble bubble-right">Sí, confirmados para las 8am ✓</div>
+              <div class="chat-avatar self">M</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FEATURES STRIP ========== -->
+  <section class="features-strip">
+    <div class="strip-container">
+      <div class="feature-item"><span class="fi-icon">📅</span><span>Planificación inteligente</span></div>
+      <div class="feature-sep">·</div>
+      <div class="feature-item"><span class="fi-icon">💸</span><span>Control de presupuesto</span></div>
+      <div class="feature-sep">·</div>
+      <div class="feature-item"><span class="fi-icon">💬</span><span>Chat de equipo</span></div>
+      <div class="feature-sep">·</div>
+      <div class="feature-item"><span class="fi-icon">📊</span><span>Reportes en tiempo real</span></div>
+    </div>
+  </section>
+
+  <!-- ========== CÓMO FUNCIONA ========== -->
+  <section class="how-works">
+    <div class="section-container">
+      <div class="section-label">¿Cómo funciona?</div>
+      <h2 class="section-title">Tres pasos para<br/>tu evento perfecto</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <div class="step-icon">🚀</div>
+          <h3>Crea tu evento</h3>
+          <p>Define el nombre, fecha, tipo y lugar. EventIApp genera automáticamente tu plantilla de checklist y cronograma base.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <div class="step-icon">🛠️</div>
+          <h3>Coordina tu equipo</h3>
+          <p>Asigna tareas, gestiona proveedores, controla el presupuesto y comunícate con tu equipo desde un solo lugar.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <div class="step-icon">🎉</div>
+          <h3>Ejecuta y celebra</h3>
+          <p>El día del evento, monitorea todo en tiempo real. Al terminar, recibe tu reporte de éxito automáticamente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIOS ========== -->
+  <section class="testimonials">
+    <div class="section-container">
+      <div class="section-label">Testimonios</div>
+      <h2 class="section-title">Lo que dicen nuestros<br/>organizadores</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card featured">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"EventIApp transformó completamente cómo organizo conferencias. Antes perdía horas en hojas de cálculo, ahora todo está en un solo lugar y mi equipo siempre está sincronizado."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">CM</div>
+            <div>
+              <div class="author-name">Carlos Mendoza</div>
+              <div class="author-role">Organizador de eventos corporativos · Lima</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"El control de presupuesto es increíble. Me alerta antes de que me pase del límite y puedo ver exactamente en qué estoy gastando."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">LV</div>
+            <div>
+              <div class="author-name">Lucía Vargas</div>
+              <div class="author-role">Wedding planner · Miraflores</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★☆</div>
+          <p class="testimonial-text">"Las notificaciones automáticas a los asistentes me ahorran un montón de tiempo. Ya no tengo que recordarle a cada persona los detalles del evento."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">RP</div>
+            <div>
+              <div class="author-name">Rodrigo Paredes</div>
+              <div class="author-role">Productor de eventos · San Isidro</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA FINAL ========== -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <div class="cta-badge">🎯 Sin tarjeta de crédito · Plan gratuito disponible</div>
+      <h2 class="cta-title">¿Listo para organizar<br/>tu próximo gran evento?</h2>
+      <p class="cta-sub">Únete a más de 150 organizadores que ya confían en EventIApp.</p>
+      <div class="cta-actions">
+        <a href="../auth/register.html" class="btn-primary btn-lg">Empieza gratis hoy</a>
+        <a href="../../demo/demo.html" class="btn-outline btn-lg">Explorar la demo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="../../assets/images/Imagotipo.png" alt="EventIApp" height="40" onerror="this.style.display='none';" />
+          <span class="footer-logo-text"></span>
+        </div>
+        <p>La plataforma que conecta emprendedores e inversores para crear eventos, impulsar startups y generar oportunidades.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><img src="../../assets/icons/Facebook.png" alt="Facebook" width="32" height="32" /></a>
+          <a href="#" aria-label="X / Twitter"><img src="../../assets/icons/X.png" alt="X" width="32" height="32" /></a>
+          <a href="#" aria-label="LinkedIn"><img src="../../assets/icons/LinkedIn.png" alt="LinkedIn" width="32" height="32" /></a>
+          <a href="#" aria-label="Instagram"><img src="../../assets/icons/Instagram.png" alt="Instagram" width="32" height="32" /></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">Navegación</div>
+          <a href="index.html">Inicio</a>
+          <a href="../beneficios/Beneficios.html">Beneficios de trabajar con nosotros</a>
+          <a href="../contacto/AyudaYcontacto.html">Preguntas frecuentes</a>
+          <a href="../contacto/AyudaYcontacto.html">Contáctanos</a>
+          <a href="../auth/register.html">Registrarse</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Recursos</div>
+          <a href="#">Soporte</a>
+          <a href="#">Documentación</a>
+          <a href="#">Privacidad</a>
+          <a href="#">Términos de servicio</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Contacto</div>
+          <div class="footer-contact-item">
+            <img src="../../assets/icons/Mail.png" alt="Email" width="20" height="20" />
+            <span>contacto@eventiapp.pe</span>
+          </div>
+          <div class="footer-contact-item">
+            <img src="../../assets/icons/Telefono.png" alt="Teléfono" width="20" height="20" />
+            <span>+51 999 988 777</span>
+          </div>
+          <div class="footer-contact-item">
+            <img src="../../assets/icons/Ubicacion.png" alt="Ubicación" width="20" height="20" />
+            <span>Lima, Perú</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 EventIApp. Todos los derechos reservados. EventIApp no comparte información personal identificable sin consentimiento explícito.</span>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+    });
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('active');
+    });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.stat-num').forEach(el => {
+      el.style.cssText = 'opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EventIApp | Nosotros</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../shared.css" />
+  <style>
+    /* ---- NOSOTROS PAGE ---- */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      margin-bottom: 80px;
+    }
+    .value-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px 28px;
+      box-shadow: 0 8px 20px rgba(58,58,58,.1);
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: 16px;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .value-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+    .value-card img { width: 80px; height: 80px; object-fit: contain; }
+    .value-card-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--blue); }
+    .value-card p { font-size: .92rem; color: var(--text-mid); line-height: 1.65; }
+
+    /* Como funciona */
+    .how-section { padding: 80px 24px; background: var(--cream-dark); }
+    .how-intro-box {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px 48px;
+      box-shadow: var(--shadow-md);
+      max-width: 820px; margin: 0 auto 60px;
+      display: flex; align-items: center; gap: 28px; flex-wrap: wrap;
+    }
+    .how-intro-box img { height: 80px; width: auto; flex-shrink: 0; }
+    .how-intro-box h2 { font-family: var(--font-display); font-size: clamp(1.4rem,2vw,2rem); color: var(--blue); margin-bottom: 10px; }
+    .how-intro-box p { font-size: 1rem; color: var(--text-mid); line-height: 1.7; }
+    .how-intro-box .em-e { font-weight: 800; color: #E59500; }
+    .how-intro-box .em-i { font-weight: 800; color: #14B0CC; }
+
+    /* Segmentos */
+    .segments { display: flex; flex-direction: column; gap: 60px; }
+    .segment-block { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); }
+    .segment-header {
+      padding: 28px 36px; display: flex; align-items: center; gap: 16px;
+    }
+    .segment-header.emprendedor { background: linear-gradient(135deg, #FFF0CF, #FFEAB0); }
+    .segment-header.inversor { background: linear-gradient(135deg, #E6F8FF, #C8EDFA); }
+    .segment-header h3 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; }
+    .segment-header.emprendedor h3 { color: #F47200; }
+    .segment-header.inversor h3 { color: #1690C4; }
+    .segment-body { padding: 36px; display: flex; flex-direction: column; gap: 28px; }
+    .segment-point {
+      display: flex; gap: 20px; align-items: flex-start;
+      background: var(--cream); border-radius: var(--radius); padding: 20px;
+    }
+    .segment-point img { width: 60px; height: 60px; object-fit: contain; flex-shrink: 0; border-radius: 10px; }
+    .segment-point-num { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--cream-dark); line-height:1; flex-shrink:0; width:40px; text-align:right; }
+    .segment-point p { font-size: .93rem; color: var(--text-mid); line-height: 1.7; margin: 0; }
+    .segment-point p .em { font-weight: 700; }
+    .segment-point p .em-e { color: #E59500; }
+    .segment-point p .em-i { color: #14B0CC; }
+
+    /* FAQ */
+    .faq-section { background: linear-gradient(to bottom, var(--white), #FDFFE5); padding: 80px 24px; }
+    .faq-search { background:var(--white);border:2px solid var(--cream-dark);border-radius:var(--radius);display:flex;align-items:center;gap:12px;padding:14px 18px;max-width:600px;margin:0 auto 40px;transition:border-color .2s,box-shadow .2s; }
+    .faq-search:focus-within { border-color:var(--blue-mid);box-shadow:0 0 0 3px rgba(47,95,168,.1); }
+    .faq-search img { width:22px;height:22px;object-fit:contain;opacity:.5;flex-shrink:0; }
+    .faq-search input { border:none;outline:none;font-family:var(--font-body);font-size:.95rem;width:100%;background:transparent;color:var(--text-dark); }
+    .faq-list { max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:12px; }
+    .faq-item { background:var(--white);border-radius:var(--radius);border:1px solid var(--cream-dark);overflow:hidden; }
+    .faq-question { width:100%;text-align:left;padding:18px 24px;font-family:var(--font-body);font-size:.95rem;font-weight:600;color:var(--text-dark);background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .2s; }
+    .faq-question:hover { background:var(--cream); }
+    .faq-arrow { font-size:.8rem;color:var(--orange);transition:transform .3s; }
+    .faq-question[aria-expanded="true"] .faq-arrow { transform:rotate(180deg); }
+    .faq-answer { max-height:0;overflow:hidden;transition:max-height .35s ease; }
+    .faq-answer.open { max-height:300px; }
+    .faq-answer p { padding:0 24px 18px;font-size:.9rem;color:var(--text-mid);line-height:1.7; }
+
+    /* CTA */
+    .nosotros-cta { padding:80px 24px;background:linear-gradient(135deg,var(--blue),var(--blue-mid));text-align:center; }
+    .nosotros-cta h2 { font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.4rem);color:var(--white);margin-bottom:16px; }
+    .nosotros-cta p { color:rgba(255,255,255,.7);margin-bottom:32px; }
+    .nosotros-cta .btn-outline { border-color:rgba(255,255,255,.5);color:var(--white); }
+    .nosotros-cta .btn-outline:hover { background:rgba(255,255,255,.15); }
+    .cta-actions { display:flex;gap:14px;justify-content:center;flex-wrap:wrap; }
+
+    @media (max-width:700px) {
+      .how-intro-box { padding: 28px 24px; flex-direction: column; text-align: center; }
+      .segment-body { padding: 20px; }
+      .segment-point { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../home/index.html" class="nav-logo">
+        <img src="../../assets/images/Imagotipo.png" alt="EventIApp" class="nav-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <span class="nav-logo-fallback">🎯 EventI<strong>App</strong></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="../home/index.html" class="nav-link">Inicio</a>
+        <a href="Nosotros.html" class="nav-link active">Nosotros</a>
+        <a href="../beneficios/Beneficios.html" class="nav-link">Beneficios</a>
+        <a href="../contacto/AyudaYcontacto.html" class="nav-link">Contacto</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="../auth/login.html" class="btn-outline">Iniciar sesión</a>
+        <a href="../auth/register.html" class="btn-primary">Empieza gratis hoy</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <div class="page-hero-label">Quiénes somos</div>
+      <h1 class="page-hero-title">Nosotros</h1>
+      <p class="page-hero-sub">Somos EventIApp, una plataforma creada para emprendedores que desean planificar eventos profesionales, presentar sus startups y conectar con inversionistas de manera organizada, confiable y estratégica.</p>
+    </div>
+  </section>
+
+  <!-- MISIÓN / VISIÓN / VALORES -->
+  <section style="padding: 80px 24px; background: linear-gradient(to bottom, var(--cream), #F7FFE3);">
+    <div class="section-container">
+      <div class="values-grid">
+        <div class="value-card">
+          <img src="../../assets/icons/Target.png" alt="Misión" onerror="this.outerHTML='<span style=\'font-size:3rem\'>🎯</span>'" />
+          <div class="value-card-title">Misión</div>
+          <p>Facilitar la conexión entre emprendedores e inversionistas mediante una plataforma accesible, inteligente y confiable para presentar startups, organizar eventos y generar oportunidades de financiamiento.</p>
+        </div>
+        <div class="value-card">
+          <img src="../../assets/icons/Eye.png" alt="Visión" onerror="this.outerHTML='<span style=\'font-size:3rem\'>👁️</span>'" />
+          <div class="value-card-title">Visión</div>
+          <p>Ser la plataforma líder en Lima para vincular startups con inversionistas, impulsando el crecimiento de emprendimientos sostenibles mediante tecnología, innovación y acceso al financiamiento.</p>
+        </div>
+        <div class="value-card">
+          <img src="../../assets/icons/HandHeart.png" alt="Valores" onerror="this.outerHTML='<span style=\'font-size:3rem\'>🤝</span>'" />
+          <div class="value-card-title">Valores</div>
+          <p>Transparencia, confianza, innovación tecnológica, accesibilidad y eficiencia para emprendedores e inversionistas. Creemos que cada idea merece su oportunidad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="how-section">
+    <div class="section-container">
+      <div class="section-label">La plataforma</div>
+      <h2 class="section-title">¿Cómo funciona EventIApp?</h2>
+
+      <div class="how-intro-box">
+        <img src="../../assets/images/Isotipo.png" alt="EventIApp" onerror="this.outerHTML='<span style=\'font-size:4rem\'>🎯</span>'" />
+        <div>
+          <h2>Dos roles, una plataforma</h2>
+          <p>Al ingresar a EventIApp, se te asigna uno de nuestros 2 roles: <span class="em-e">Emprendedor</span> e <span class="em-i">Inversor</span>. Cada rol tiene herramientas diseñadas específicamente para sus objetivos.</p>
+        </div>
+      </div>
+
+      <div class="segments">
+        <!-- EMPRENDEDOR -->
+        <div class="segment-block">
+          <div class="segment-header emprendedor">
+            <span style="font-size:2rem;">🚀</span>
+            <h3>Emprendedor</h3>
+          </div>
+          <div class="segment-body">
+            <div class="segment-point">
+              <div class="segment-point-num">01</div>
+              <p>El rol de <span class="em em-e">emprendedor/startuper</span> está conformado por personas que buscan hacer crecer sus negocios mediante la organización de eventos que les permitan obtener visibilidad, captar clientes, generar alianzas estratégicas y acceder a oportunidades de financiamiento. Dentro de EventIApp, es responsable de crear y gestionar eventos, definir objetivos y registrar recursos.</p>
+            </div>
+            <div class="segment-point">
+              <div class="segment-point-num">02</div>
+              <p>La plataforma le permite organizar tareas mediante checklists, asignar responsabilidades a miembros del equipo, administrar presupuestos y controlar gastos para evitar sobrecostos. También puede obtener seguimiento mediante métricas post-evento y gestionar la comunicación con potenciales inversionistas.</p>
+            </div>
+            <div class="segment-point">
+              <div class="segment-point-num">03</div>
+              <p>Los planes que EventIApp ofrece mejoran la posibilidad de que un inversor financie tu proyecto mediante el algoritmo preferencial, brindando asistencia mejorada y acceso a funciones exclusivas. El plan gratuito ya incluye todo lo esencial para empezar.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- INVERSOR -->
+        <div class="segment-block">
+          <div class="segment-header inversor">
+            <span style="font-size:2rem;">💼</span>
+            <h3>Inversor</h3>
+          </div>
+          <div class="segment-body">
+            <div class="segment-point">
+              <div class="segment-point-num">01</div>
+              <p>El rol de <span class="em em-i">inversor/analista financiero</span> está compuesto por usuarios interesados en identificar oportunidades de inversión rentables y con potencial de crecimiento, minimizando los riesgos asociados a la toma de decisiones.</p>
+            </div>
+            <div class="segment-point">
+              <div class="segment-point-num">02</div>
+              <p>Dentro de EventIApp, pueden explorar eventos y emprendimientos, analizar información relevante de startups, evaluar indicadores y comparar proyectos. La plataforma ofrece herramientas para revisar perfiles de negocio, consultar métricas y establecer comunicación directa con emprendedores.</p>
+            </div>
+            <div class="segment-point">
+              <div class="segment-point-num">03</div>
+              <p>EventIApp actúa como filtro que centraliza información estructurada y confiable, reduciendo el tiempo invertido en búsqueda de oportunidades y aumentando la transparencia. El objetivo principal: encontrar proyectos prometedores y establecer relaciones estratégicas con emprendedores sólidos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="section-container">
+      <div class="section-label">¿Tienes dudas?</div>
+      <h2 class="section-title">Preguntas Frecuentes</h2>
+      <div class="faq-search">
+        <img src="../../assets/icons/Lupa.png" alt="Buscar" onerror="this.outerHTML='🔍'" />
+        <input type="text" placeholder="Pregunta o ingresa una palabra clave..." id="faqSearch" />
+      </div>
+      <div class="faq-list" id="faqList">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">¿Qué tan segura y confiable es EventIApp? <span class="faq-arrow">▼</span></button>
+          <div class="faq-answer"><p>EventIApp usa cifrado SSL de 256 bits. Nunca compartimos información personal sin consentimiento. Contamos con backups automáticos diarios.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">¿Qué funciones de pago ofrecen? <span class="faq-arrow">▼</span></button>
+          <div class="faq-answer"><p>Los planes Pro (S/ 29/mes) y Equipo (S/ 79/mes) incluyen: eventos ilimitados, IA avanzada, algoritmo preferencial para inversores, soporte prioritario 24/7 y reportes detallados.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">¿Qué horarios de atención tienen? <span class="faq-arrow">▼</span></button>
+          <div class="faq-answer"><p>Lunes a Sábado: 8am – 10pm. Domingos y Feriados: 10am – 3pm. Usuarios Pro y Equipo tienen soporte 24/7.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">¿Cómo funciona la aplicación y los perfiles? <span class="faq-arrow">▼</span></button>
+          <div class="faq-answer"><p>Al registrarte eliges entre Emprendedor (organiza eventos y busca financiamiento) o Inversor (explora oportunidades). Cada rol tiene herramientas específicas.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="nosotros-cta">
+    <h2>¿Listo para ser parte de EventIApp?</h2>
+    <p>Únete a emprendedores e inversores que ya están construyendo el futuro.</p>
+    <div class="cta-actions">
+      <a href="../auth/register.html" class="btn-primary btn-lg">Empieza gratis hoy</a>
+      <a href="../../demo/demo.html" class="btn-outline btn-lg">Explorar la demo</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="../../assets/images/Imagotipo.png" alt="EventIApp" onerror="this.style.display='none';" />
+          <span class="footer-logo-text">EventI<strong>App</strong></span>
+        </div>
+        <p>La plataforma que conecta emprendedores e inversores para crear eventos, impulsar startups y generar oportunidades.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><img src="../../assets/icons/Facebook.png" alt="Facebook" /></a>
+          <a href="#" aria-label="X"><img src="../../assets/icons/X.png" alt="X" /></a>
+          <a href="#" aria-label="LinkedIn"><img src="../../assets/icons/LinkedIn.png" alt="LinkedIn" /></a>
+          <a href="#" aria-label="Instagram"><img src="../../assets/icons/Instagram.png" alt="Instagram" /></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">Navegación</div>
+          <a href="../home/index.html">Inicio</a>
+          <a href="../beneficios/Beneficios.html">Beneficios</a>
+          <a href="../contacto/AyudaYcontacto.html">Preguntas frecuentes</a>
+          <a href="../contacto/AyudaYcontacto.html">Contáctanos</a>
+          <a href="../auth/register.html">Registrarse</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Recursos</div>
+          <a href="#">Soporte</a>
+          <a href="#">Documentación</a>
+          <a href="#">Privacidad</a>
+          <a href="#">Términos de servicio</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Contacto</div>
+          <div class="footer-contact-item"><img src="../../assets/icons/Mail.png" alt="Email" /><span>contacto@eventiapp.pe</span></div>
+          <div class="footer-contact-item"><img src="../../assets/icons/Telefono.png" alt="Teléfono" /><span>+51 999 988 777</span></div>
+          <div class="footer-contact-item"><img src="../../assets/icons/Ubicacion.png" alt="Ubicación" /><span>Lima, Perú</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 EventIApp. Todos los derechos reservados.</div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+    });
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        document.querySelectorAll('.faq-question').forEach(b => { b.setAttribute('aria-expanded','false'); b.nextElementSibling.classList.remove('open'); });
+        if (!isOpen) { btn.setAttribute('aria-expanded','true'); btn.nextElementSibling.classList.add('open'); }
+      });
+    });
+    document.getElementById('faqSearch').addEventListener('input', function() {
+      const q = this.value.toLowerCase();
+      document.querySelectorAll('.faq-item').forEach(item => { item.style.display = item.textContent.toLowerCase().includes(q) ? '' : 'none'; });
+    });
+  </script>
+</body>
+</html>

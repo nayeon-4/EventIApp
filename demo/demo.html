@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventIApp | Demo Interactiva</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" role="navigation" aria-label="Navegación principal">
+    <a href="../pages/home/index.html" class="nav-logo" aria-label="Ir al inicio de EventIApp">
+      <img src="../assets/images/Imagotipo.png" alt="EventIApp logo" height="40">
+    </a>
+    <div class="nav-links">
+      <a href="../pages/home/index.html">Inicio</a>
+      <a href="../pages/beneficios/beneficios.html">Beneficios</a>
+      <a href="../pages/nosotros/nosotros.html">Nosotros</a>
+      <a href="../pages/contacto/contacto.html">Ayuda y Contacto</a>
+    </div>
+    <div class="nav-buttons">
+      <a href="../pages/auth/login.html" class="btn-login">Iniciar sesión</a>
+      <a href="../pages/auth/register.html" class="btn-register">Registrarse</a>
+    </div>
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" id="hamburgerBtn">&#9776;</button>
+  </nav>
+
+  <!-- Menú móvil -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menú de navegación móvil">
+    <a href="../pages/home/index.html">Inicio</a>
+    <a href="../pages/beneficios/beneficios.html">Beneficios</a>
+    <a href="../pages/nosotros/nosotros.html">Nosotros</a>
+    <a href="../pages/contacto/contacto.html">Ayuda y Contacto</a>
+    <a href="../pages/auth/login.html" class="btn-login">Iniciar sesión</a>
+    <a href="../pages/auth/register.html" class="btn-register">Registrarse</a>
+  </div>
+
+  <!-- ===== HERO DEMO ===== -->
+  <section class="demo-hero" aria-labelledby="demo-hero-title">
+    <div class="demo-hero-content">
+      <span class="demo-badge">Demo interactiva gratuita</span>
+      <h1 id="demo-hero-title">Explora EventIApp antes de registrarte</h1>
+      <p>Prueba en tiempo real los módulos principales: gestión de eventos, presupuesto, métricas, matchmaking con inversores y chat. Sin crear cuenta.</p>
+      <a href="#demo-tabs" class="btn-primary">Comenzar demo</a>
+    </div>
+    <div class="demo-hero-visual" aria-hidden="true">
+      <div class="floating-card fc1">
+        <span class="fc-icon">📅</span>
+        <span>Evento creado</span>
+      </div>
+      <div class="floating-card fc2">
+        <span class="fc-icon">💰</span>
+        <span>Presupuesto: S/ 12,500</span>
+      </div>
+      <div class="floating-card fc3">
+        <span class="fc-icon">🤝</span>
+        <span>3 inversores conectados</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TABS DE MÓDULOS ===== -->
+  <section class="demo-tabs-section" id="demo-tabs" aria-label="Módulos de la plataforma">
+    <div class="tabs-header" role="tablist" aria-label="Seleccionar módulo">
+      <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="panel-eventos" id="tab-eventos" data-tab="eventos">
+        <span class="tab-icon" aria-hidden="true">📅</span>
+        <span>Gestión de Eventos</span>
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-checklist" id="tab-checklist" data-tab="checklist">
+        <span class="tab-icon" aria-hidden="true">✅</span>
+        <span>Checklist</span>
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-presupuesto" id="tab-presupuesto" data-tab="presupuesto">
+        <span class="tab-icon" aria-hidden="true">💰</span>
+        <span>Presupuesto</span>
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-metricas" id="tab-metricas" data-tab="metricas">
+        <span class="tab-icon" aria-hidden="true">📊</span>
+        <span>Métricas</span>
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-startups" id="tab-startups" data-tab="startups">
+        <span class="tab-icon" aria-hidden="true">🚀</span>
+        <span>Explorar Startups</span>
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-chat" id="tab-chat" data-tab="chat">
+        <span class="tab-icon" aria-hidden="true">💬</span>
+        <span>Chat y Reuniones</span>
+      </button>
+    </div>
+
+    <!-- ====================================================== -->
+    <!-- PANEL 1: GESTIÓN DE EVENTOS (US01-US05, US07)          -->
+    <!-- ====================================================== -->
+    <div class="tab-panel active" id="panel-eventos" role="tabpanel" aria-labelledby="tab-eventos">
+      <div class="panel-intro">
+        <h2>Gestión de eventos</h2>
+        <p>Crea, edita y administra tus eventos profesionales desde un solo lugar.</p>
+        <div class="us-tags" aria-label="Historias de usuario cubiertas">
+          <span class="us-tag">US01 Crear evento</span>
+          <span class="us-tag">US02 Editar evento</span>
+          <span class="us-tag">US03 Definir objetivos</span>
+          <span class="us-tag">US04 Asignar recursos</span>
+          <span class="us-tag">US05 Público objetivo</span>
+          <span class="us-tag">US07 Cancelar evento</span>
+        </div>
+      </div>
+
+      <div class="events-layout">
+        <!-- Formulario de creación US01 US03 US04 US05 -->
+        <div class="card form-card">
+          <div class="card-header">
+            <h3>Crear nuevo evento</h3>
+            <span class="card-badge">US01 · US03 · US04 · US05</span>
+          </div>
+          <form id="eventoForm" novalidate aria-label="Formulario de creación de evento">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="eventoNombre">Nombre del evento <span class="required" aria-hidden="true">*</span></label>
+                <input type="text" id="eventoNombre" placeholder="Ej: Demo Day Lima 2026" required aria-required="true" maxlength="80">
+                <span class="error-msg" id="err-nombre" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="eventoFecha">Fecha del evento <span class="required" aria-hidden="true">*</span></label>
+                <input type="date" id="eventoFecha" required aria-required="true">
+                <span class="error-msg" id="err-fecha" role="alert"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="eventoDesc">Descripción</label>
+              <textarea id="eventoDesc" rows="3" placeholder="Describe el propósito de tu evento..."></textarea>
+            </div>
+            <!-- US03 Objetivos -->
+            <div class="form-group">
+              <label for="eventoObjetivo">Objetivo principal <span class="required" aria-hidden="true">*</span></label>
+              <select id="eventoObjetivo" required aria-required="true">
+                <option value="">Selecciona un objetivo</option>
+                <option value="captacion">Captación de inversión</option>
+                <option value="networking">Networking empresarial</option>
+                <option value="lanzamiento">Lanzamiento de producto</option>
+                <option value="alianzas">Alianzas estratégicas</option>
+              </select>
+              <span class="error-msg" id="err-objetivo" role="alert"></span>
+            </div>
+            <!-- US05 Público objetivo -->
+            <div class="form-group">
+              <label>Público objetivo</label>
+              <div class="checkbox-group" role="group" aria-label="Selecciona el público objetivo">
+                <label class="checkbox-label"><input type="checkbox" value="inversores"> Inversores</label>
+                <label class="checkbox-label"><input type="checkbox" value="emprendedores"> Emprendedores</label>
+                <label class="checkbox-label"><input type="checkbox" value="clientes"> Clientes potenciales</label>
+                <label class="checkbox-label"><input type="checkbox" value="aliados"> Aliados estratégicos</label>
+              </div>
+            </div>
+            <!-- US04 Recursos -->
+            <div class="form-group">
+              <label for="eventoRecursos">Recursos necesarios</label>
+              <div class="recursos-grid" role="group" aria-label="Selecciona los recursos del evento">
+                <label class="resource-chip"><input type="checkbox" value="sala"> 🏢 Sala</label>
+                <label class="resource-chip"><input type="checkbox" value="streaming"> 📡 Streaming</label>
+                <label class="resource-chip"><input type="checkbox" value="catering"> 🍽️ Catering</label>
+                <label class="resource-chip"><input type="checkbox" value="equipoAV"> 🎤 Equipo A/V</label>
+                <label class="resource-chip"><input type="checkbox" value="fotografia"> 📸 Fotografía</label>
+                <label class="resource-chip"><input type="checkbox" value="traduccion"> 🌐 Traducción</label>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn-secondary" id="btnLimpiar">Limpiar</button>
+              <button type="submit" class="btn-primary" id="btnCrearEvento">Crear evento</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Lista de eventos creados US02 US07 -->
+        <div class="card events-list-card">
+          <div class="card-header">
+            <h3>Mis eventos</h3>
+            <span class="card-badge">US02 · US07</span>
+          </div>
+          <div id="eventosList" aria-live="polite" aria-label="Lista de eventos creados">
+            <!-- Eventos de demo precargados -->
+            <div class="event-item" data-id="demo1">
+              <div class="event-item-info">
+                <span class="event-status active" aria-label="Estado: activo">Activo</span>
+                <strong>Demo Day Lima 2026</strong>
+                <span class="event-date">📅 15 Jul 2026 · Captación de inversión</span>
+              </div>
+              <div class="event-item-actions">
+                <button class="btn-icon" aria-label="Editar evento Demo Day Lima 2026" onclick="editarEvento('demo1')">✏️ Editar</button>
+                <button class="btn-icon danger" aria-label="Cancelar evento Demo Day Lima 2026" onclick="cancelarEvento('demo1')">❌ Cancelar</button>
+              </div>
+            </div>
+            <div class="event-item" data-id="demo2">
+              <div class="event-item-info">
+                <span class="event-status active" aria-label="Estado: activo">Activo</span>
+                <strong>Startup Night Miraflores</strong>
+                <span class="event-date">📅 22 Ago 2026 · Networking empresarial</span>
+              </div>
+              <div class="event-item-actions">
+                <button class="btn-icon" aria-label="Editar evento Startup Night Miraflores" onclick="editarEvento('demo2')">✏️ Editar</button>
+                <button class="btn-icon danger" aria-label="Cancelar evento Startup Night Miraflores" onclick="cancelarEvento('demo2')">❌ Cancelar</button>
+              </div>
+            </div>
+          </div>
+          <p class="empty-state" id="emptyEvents" style="display:none">Aún no tienes eventos. ¡Crea el primero!</p>
+        </div>
+      </div>
+
+      <!-- Modal edición US02 -->
+      <div class="modal-overlay" id="editModal" role="dialog" aria-modal="true" aria-labelledby="editModalTitle" style="display:none">
+        <div class="modal">
+          <div class="modal-header">
+            <h3 id="editModalTitle">Editar evento</h3>
+            <button class="modal-close" aria-label="Cerrar modal" onclick="cerrarModal('editModal')">✕</button>
+          </div>
+          <div class="form-group">
+            <label for="editNombre">Nombre del evento</label>
+            <input type="text" id="editNombre" placeholder="Nombre del evento">
+          </div>
+          <div class="form-group">
+            <label for="editFecha">Fecha</label>
+            <input type="date" id="editFecha">
+          </div>
+          <div class="form-group">
+            <label for="editDesc">Descripción</label>
+            <textarea id="editDesc" rows="3"></textarea>
+          </div>
+          <div class="modal-actions">
+            <button class="btn-secondary" onclick="cerrarModal('editModal')">Cancelar</button>
+            <button class="btn-primary" onclick="guardarEdicion()">Guardar cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====================================================== -->
+    <!-- PANEL 2: CHECKLIST (US08-US11, US14)                   -->
+    <!-- ====================================================== -->
+    <div class="tab-panel" id="panel-checklist" role="tabpanel" aria-labelledby="tab-checklist">
+      <div class="panel-intro">
+        <h2>Planificación y checklist</h2>
+        <p>Organiza tareas, asigna responsables y mantén el control de tu evento.</p>
+        <div class="us-tags" aria-label="Historias de usuario cubiertas">
+          <span class="us-tag">US08 Ver checklist</span>
+          <span class="us-tag">US09 Registrar tarea</span>
+          <span class="us-tag">US10 Asignar tarea</span>
+          <span class="us-tag">US11 Alertas de tareas</span>
+          <span class="us-tag">US14 Cronograma</span>
+        </div>
+      </div>
+
+      <div class="checklist-layout">
+        <!-- US08 US09 US10 -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Lista de tareas</h3>
+            <span class="card-badge">US08 · US09 · US10</span>
+          </div>
+
+          <div class="checklist-add" role="form" aria-label="Agregar nueva tarea">
+            <div class="checklist-input-row">
+              <input type="text" id="nuevaTarea" placeholder="Escribe una nueva tarea..." aria-label="Nombre de la nueva tarea" maxlength="100">
+              <select id="asignadoA" aria-label="Asignar tarea a un miembro del equipo">
+                <option value="">Asignar a...</option>
+                <option value="Carlos M.">Carlos M.</option>
+                <option value="Sofía R.">Sofía R.</option>
+                <option value="Diego B.">Diego B.</option>
+                <option value="Mirko L.">Mirko L.</option>
+                <option value="Joseluis V.">Joseluis V.</option>
+              </select>
+              <input type="date" id="fechaTarea" aria-label="Fecha límite de la tarea">
+              <button class="btn-primary" id="btnAgregarTarea" onclick="agregarTarea()">+ Agregar</button>
+            </div>
+          </div>
+
+          <div id="checklistContainer" aria-live="polite" aria-label="Lista de tareas del evento">
+            <!-- Tareas precargadas -->
+            <div class="task-item" data-id="t1">
+              <input type="checkbox" id="ck-t1" aria-label="Marcar tarea: Reservar sala de eventos como completada">
+              <label for="ck-t1" class="task-label">Reservar sala de eventos</label>
+              <span class="task-assignee">👤 Carlos M.</span>
+              <span class="task-date warn" aria-label="Fecha límite próxima">⚠️ 20 Jun</span>
+              <button class="btn-icon danger small" aria-label="Eliminar tarea" onclick="eliminarTarea('t1')">🗑️</button>
+            </div>
+            <div class="task-item" data-id="t2">
+              <input type="checkbox" id="ck-t2" aria-label="Marcar tarea: Confirmar ponentes como completada">
+              <label for="ck-t2" class="task-label">Confirmar ponentes</label>
+              <span class="task-assignee">👤 Sofía R.</span>
+              <span class="task-date">📅 25 Jun</span>
+              <button class="btn-icon danger small" aria-label="Eliminar tarea" onclick="eliminarTarea('t2')">🗑️</button>
+            </div>
+            <div class="task-item completed" data-id="t3">
+              <input type="checkbox" id="ck-t3" checked aria-label="Tarea completada: Diseñar material gráfico">
+              <label for="ck-t3" class="task-label">Diseñar material gráfico</label>
+              <span class="task-assignee">👤 Diego B.</span>
+              <span class="task-date done">✅ Completada</span>
+              <button class="btn-icon danger small" aria-label="Eliminar tarea" onclick="eliminarTarea('t3')">🗑️</button>
+            </div>
+          </div>
+
+          <div class="checklist-summary" aria-live="polite">
+            <span id="tareasResumen">2 pendientes · 1 completada</span>
+            <!-- US11 Alerta de tareas -->
+            <button class="btn-warning small" onclick="simularAlertaTareas()">🔔 Verificar alertas</button>
+          </div>
+        </div>
+
+        <!-- US14 Cronograma -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Cronograma del evento</h3>
+            <span class="card-badge">US14</span>
+          </div>
+          <div class="timeline" role="list" aria-label="Cronograma de actividades">
+            <div class="timeline-item done" role="listitem">
+              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">1 Jun 2026</span>
+                <strong>Planificación inicial</strong>
+                <p>Definición de objetivos y equipo</p>
+              </div>
+            </div>
+            <div class="timeline-item done" role="listitem">
+              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">15 Jun 2026</span>
+                <strong>Confirmación de recursos</strong>
+                <p>Sala, catering y ponentes confirmados</p>
+              </div>
+            </div>
+            <div class="timeline-item current" role="listitem">
+              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">20 Jun 2026</span>
+                <strong>Fase de comunicación ← Hoy</strong>
+                <p>Envío de invitaciones y promoción</p>
+              </div>
+            </div>
+            <div class="timeline-item" role="listitem">
+              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">10 Jul 2026</span>
+                <strong>Ensayo general</strong>
+                <p>Prueba de equipos y logística</p>
+              </div>
+            </div>
+            <div class="timeline-item" role="listitem">
+              <div class="timeline-dot" aria-hidden="true"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">15 Jul 2026</span>
+                <strong>Día del evento 🎯</strong>
+                <p>Demo Day Lima 2026</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====================================================== -->
+    <!-- PANEL 3: PRESUPUESTO (US15-US19, US21)                 -->
+    <!-- ====================================================== -->
+    <div class="tab-panel" id="panel-presupuesto" role="tabpanel" aria-labelledby="tab-presupuesto">
+      <div class="panel-intro">
+        <h2>Control de presupuesto</h2>
+        <p>Registra gastos, controla ingresos y evita sobrecostos en tiempo real.</p>
+        <div class="us-tags" aria-label="Historias de usuario cubiertas">
+          <span class="us-tag">US15 Registrar gastos</span>
+          <span class="us-tag">US16 Presupuesto dinámico</span>
+          <span class="us-tag">US17 Alerta sobrecosto</span>
+          <span class="us-tag">US18 ROI</span>
+          <span class="us-tag">US19 Reporte financiero</span>
+          <span class="us-tag">US21 Comparar ingresos/gastos</span>
+        </div>
+      </div>
+
+      <!-- US16 Panel dinámico + US21 Comparar -->
+      <div class="budget-summary-grid">
+        <div class="budget-card ingresos">
+          <span class="budget-label">Total ingresos</span>
+          <span class="budget-amount" id="totalIngresos" aria-live="polite">S/ 15,000</span>
+          <span class="budget-sub">Patrocinios + Entradas</span>
+        </div>
+        <div class="budget-card gastos">
+          <span class="budget-label">Total gastos</span>
+          <span class="budget-amount" id="totalGastos" aria-live="polite">S/ 12,500</span>
+          <span class="budget-sub">Acumulado</span>
+        </div>
+        <!-- US18 ROI -->
+        <div class="budget-card roi">
+          <span class="budget-label">ROI estimado</span>
+          <span class="budget-amount" id="roiValor" aria-live="polite">20%</span>
+          <span class="budget-sub">(Ingresos − Gastos) / Gastos</span>
+        </div>
+        <div class="budget-card balance" id="balanceCard">
+          <span class="budget-label">Balance</span>
+          <span class="budget-amount" id="balanceValor" aria-live="polite">S/ 2,500</span>
+          <span class="budget-sub" id="balanceEstado">✅ Dentro del presupuesto</span>
+        </div>
+      </div>
+
+      <!-- US17 Alerta sobrecosto -->
+      <div class="alert-bar" id="alertSobrecosto" role="alert" aria-live="assertive" style="display:none">
+        ⚠️ <strong>Alerta de sobrecosto:</strong> Los gastos superan el límite establecido. Revisa tus partidas.
+      </div>
+
+      <div class="budget-layout">
+        <!-- US15 Formulario de gastos -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Registrar gasto</h3>
+            <span class="card-badge">US15</span>
+          </div>
+          <form id="gastoForm" novalidate aria-label="Formulario de registro de gasto">
+            <div class="form-group">
+              <label for="gastoCategoria">Categoría</label>
+              <select id="gastoCategoria" aria-label="Categoría del gasto">
+                <option value="logistica">Logística</option>
+                <option value="marketing">Marketing</option>
+                <option value="catering">Catering</option>
+                <option value="tecnologia">Tecnología</option>
+                <option value="personal">Personal</option>
+                <option value="otros">Otros</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="gastoDescripcion">Descripción</label>
+              <input type="text" id="gastoDescripcion" placeholder="Ej: Alquiler de sala" maxlength="60">
+            </div>
+            <div class="form-group">
+              <label for="gastoMonto">Monto (S/.) <span class="required" aria-hidden="true">*</span></label>
+              <input type="number" id="gastoMonto" min="1" max="999999" placeholder="0.00" required aria-required="true">
+              <span class="error-msg" id="err-monto" role="alert"></span>
+            </div>
+            <button type="submit" class="btn-primary full-width">Registrar gasto</button>
+          </form>
+
+          <!-- US21 tabla de gastos -->
+          <div class="gastos-table-wrap" role="region" aria-label="Tabla de gastos registrados">
+            <table class="gastos-table" aria-label="Gastos registrados">
+              <thead>
+                <tr><th scope="col">Categoría</th><th scope="col">Descripción</th><th scope="col">Monto</th><th scope="col">Acción</th></tr>
+              </thead>
+              <tbody id="gastosTableBody">
+                <tr><td>Logística</td><td>Alquiler de sala</td><td>S/ 3,500</td><td><button class="btn-icon danger small" aria-label="Eliminar gasto sala">🗑️</button></td></tr>
+                <tr><td>Marketing</td><td>Diseño gráfico</td><td>S/ 800</td><td><button class="btn-icon danger small" aria-label="Eliminar gasto marketing">🗑️</button></td></tr>
+                <tr><td>Catering</td><td>Coffee break</td><td>S/ 2,200</td><td><button class="btn-icon danger small" aria-label="Eliminar gasto catering">🗑️</button></td></tr>
+                <tr><td>Tecnología</td><td>Streaming HD</td><td>S/ 4,000</td><td><button class="btn-icon danger small" aria-label="Eliminar gasto tecnología">🗑️</button></td></tr>
+                <tr><td>Personal</td><td>Staff del evento</td><td>S/ 2,000</td><td><button class="btn-icon danger small" aria-label="Eliminar gasto personal">🗑️</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- US21 Comparación visual + US19 Reporte -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Ingresos vs Gastos</h3>
+            <span class="card-badge">US21</span>
+          </div>
+          <div class="budget-chart" aria-label="Gráfico de comparación de ingresos y gastos">
+            <div class="chart-bar-group">
+              <div class="chart-bar-label">Ingresos</div>
+              <div class="chart-bar-track" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="Ingresos: S/ 15,000 (100%)">
+                <div class="chart-bar ingresos-bar" style="width:100%"><span>S/ 15,000</span></div>
+              </div>
+            </div>
+            <div class="chart-bar-group">
+              <div class="chart-bar-label">Gastos</div>
+              <div class="chart-bar-track" role="progressbar" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100" aria-label="Gastos: S/ 12,500 (83%)">
+                <div class="chart-bar gastos-bar" id="gastoBar" style="width:83%"><span id="gastoBarLabel">S/ 12,500</span></div>
+              </div>
+            </div>
+            <div class="chart-bar-group">
+              <div class="chart-bar-label">Balance</div>
+              <div class="chart-bar-track" role="progressbar" aria-valuenow="17" aria-valuemin="0" aria-valuemax="100" aria-label="Balance positivo: S/ 2,500">
+                <div class="chart-bar balance-bar" style="width:17%"><span>S/ 2,500</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="budget-limit-control">
+            <label for="limitPresupuesto">Límite de presupuesto (S/.)</label>
+            <div class="limit-row">
+              <input type="number" id="limitPresupuesto" value="13000" min="1000" max="999999" aria-label="Establecer límite de presupuesto">
+              <button class="btn-secondary" onclick="verificarLimite()">Verificar</button>
+            </div>
+          </div>
+
+          <!-- US19 Generar reporte -->
+          <div class="card-header" style="margin-top:1.5rem">
+            <h3>Reporte financiero</h3>
+            <span class="card-badge">US19</span>
+          </div>
+          <div class="reporte-section">
+            <p>Genera un resumen completo de ingresos, gastos y ROI de tu evento.</p>
+            <button class="btn-primary" onclick="generarReporte()" id="btnReporte">📄 Generar reporte</button>
+            <div class="reporte-output" id="reporteOutput" aria-live="polite" style="display:none"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====================================================== -->
+    <!-- PANEL 4: MÉTRICAS (US22-US25)                          -->
+    <!-- ====================================================== -->
+    <div class="tab-panel" id="panel-metricas" role="tabpanel" aria-labelledby="tab-metricas">
+      <div class="panel-intro">
+        <h2>Dashboard de métricas</h2>
+        <p>Monitorea el desempeño de tu evento con indicadores en tiempo real.</p>
+        <div class="us-tags" aria-label="Historias de usuario cubiertas">
+          <span class="us-tag">US22 Dashboard</span>
+          <span class="us-tag">US23 Asistencia</span>
+          <span class="us-tag">US24 ROI post-evento</span>
+          <span class="us-tag">US25 Gráficos comparativos</span>
+        </div>
+      </div>
+
+      <!-- US22 Dashboard -->
+      <div class="metrics-kpi-grid" role="region" aria-label="Indicadores clave del evento">
+        <div class="kpi-card">
+          <span class="kpi-icon" aria-hidden="true">👥</span>
+          <span class="kpi-value" id="kpiAsistentes">142</span>
+          <span class="kpi-label">Asistentes registrados</span>
+          <span class="kpi-trend up" aria-label="Tendencia: subió 18% respecto al evento anterior">↑ 18% vs anterior</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-icon" aria-hidden="true">💼</span>
+          <span class="kpi-value">8</span>
+          <span class="kpi-label">Inversores presentes</span>
+          <span class="kpi-trend up" aria-label="Tendencia: subió 3 respecto al evento anterior">↑ +3 vs anterior</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-icon" aria-hidden="true">🤝</span>
+          <span class="kpi-value">23</span>
+          <span class="kpi-label">Conexiones realizadas</span>
+          <span class="kpi-trend up" aria-label="Tendencia positiva">↑ Récord</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-icon" aria-hidden="true">⭐</span>
+          <span class="kpi-value">4.7</span>
+          <span class="kpi-label">Satisfacción (sobre 5)</span>
+          <span class="kpi-trend stable" aria-label="Tendencia estable">→ Estable</span>
+        </div>
+      </div>
+
+      <!-- US23 Asistencia -->
+      <div class="metrics-row">
+        <div class="card">
+          <div class="card-header">
+            <h3>Tasa de asistencia</h3>
+            <span class="card-badge">US23</span>
+          </div>
+          <div class="asistencia-display" aria-label="Tasa de asistencia al evento">
+            <div class="asistencia-number" aria-live="polite" id="asistenciaPct">75%</div>
+            <div class="progress-container">
+              <div class="progress-track" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="75% de asistencia del total de inscritos">
+                <div class="progress-fill" id="asistenciaBar" style="width:75%"></div>
+              </div>
+              <div class="progress-labels"><span>0</span><span>50%</span><span>100%</span></div>
+            </div>
+            <p>142 de 190 inscritos asistieron al evento</p>
+          </div>
+          <div class="asistencia-controls">
+            <label for="sliderAsistencia">Simular asistencia:</label>
+            <input type="range" id="sliderAsistencia" min="0" max="100" value="75" aria-label="Ajustar tasa de asistencia simulada" oninput="actualizarAsistencia(this.value)">
+            <span id="sliderVal">75%</span>
+          </div>
+        </div>
+
+        <!-- US24 ROI post-evento -->
+        <div class="card">
+          <div class="card-header">
+            <h3>ROI post-evento</h3>
+            <span class="card-badge">US24</span>
+          </div>
+          <div class="roi-display" aria-label="Cálculo de retorno de inversión post-evento">
+            <div class="roi-row"><span>Inversión total</span><span class="roi-val">S/ 12,500</span></div>
+            <div class="roi-row"><span>Ingresos obtenidos</span><span class="roi-val positive">S/ 15,000</span></div>
+            <div class="roi-row"><span>Contratos cerrados</span><span class="roi-val">3 acuerdos</span></div>
+            <div class="roi-row total"><span>ROI final</span><span class="roi-val positive" aria-label="ROI final: 20%">+20%</span></div>
+          </div>
+          <button class="btn-primary" onclick="calcularROI()">Recalcular ROI</button>
+        </div>
+      </div>
+
+      <!-- US25 Gráficos comparativos -->
+      <div class="card">
+        <div class="card-header">
+          <h3>Comparativa de eventos</h3>
+          <span class="card-badge">US25</span>
+        </div>
+        <div class="chart-comparativo" role="img" aria-label="Gráfico de barras comparando asistencia, inversores y conexiones en tres eventos anteriores">
+          <div class="comp-chart">
+            <div class="comp-group">
+              <div class="comp-bar-set">
+                <div class="comp-bar b1" style="height:60%" aria-label="Demo Day Mar: 95 asistentes"><span>95</span></div>
+                <div class="comp-bar b2" style="height:35%" aria-label="Demo Day Mar: 5 inversores"><span>5</span></div>
+                <div class="comp-bar b3" style="height:45%" aria-label="Demo Day Mar: 14 conexiones"><span>14</span></div>
+              </div>
+              <span class="comp-label">Demo Day Mar</span>
+            </div>
+            <div class="comp-group">
+              <div class="comp-bar-set">
+                <div class="comp-bar b1" style="height:78%" aria-label="Startup Night May: 120 asistentes"><span>120</span></div>
+                <div class="comp-bar b2" style="height:45%" aria-label="Startup Night May: 7 inversores"><span>7</span></div>
+                <div class="comp-bar b3" style="height:60%" aria-label="Startup Night May: 19 conexiones"><span>19</span></div>
+              </div>
+              <span class="comp-label">Startup Night May</span>
+            </div>
+            <div class="comp-group current-event">
+              <div class="comp-bar-set">
+                <div class="comp-bar b1" style="height:100%" aria-label="Demo Day Jun (actual): 142 asistentes"><span>142</span></div>
+                <div class="comp-bar b2" style="height:55%" aria-label="Demo Day Jun (actual): 8 inversores"><span>8</span></div>
+                <div class="comp-bar b3" style="height:80%" aria-label="Demo Day Jun (actual): 23 conexiones"><span>23</span></div>
+              </div>
+              <span class="comp-label">Demo Day Jun ⭐</span>
+            </div>
+          </div>
+          <div class="comp-legend" aria-label="Leyenda del gráfico">
+            <span class="legend-item l1">Asistentes</span>
+            <span class="legend-item l2">Inversores</span>
+            <span class="legend-item l3">Conexiones</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====================================================== -->
+    <!-- PANEL 5: EXPLORAR STARTUPS (US28-US34)                 -->
+    <!-- ====================================================== -->
+    <div class="tab-panel" id="panel-startups" role="tabpanel" aria-labelledby="tab-startups">
+      <div class="panel-intro">
+        <h2>Exploración de startups</h2>
+        <p>Descubre, filtra y compara oportunidades de inversión con datos reales.</p>
+        <div class="us-tags" aria-label="Historias de usuario cubiertas">
+          <span class="us-tag">US28 Evaluar oportunidades</span>
+          <span class="us-tag">US29 Filtrar por sector</span>
+          <span class="us-tag">US31 Marcar favoritos</span>
+          <span class="us-tag">US32 Recomendación IA</span>
+          <span class="us-tag">US34 Comparar proyectos</span>
+        </div>
+      </div>
+
+      <!-- US32 Recomendación IA -->
+      <div class="ia-banner" role="region" aria-label="Recomendaciones de inteligencia artificial">
+        <div class="ia-icon" aria-hidden="true">🤖</div>
+        <div class="ia-text">
+          <strong>Motor de recomendación IA</strong>
+          <p>Basado en tu perfil inversor y eventos anteriores, EventIApp sugiere las mejores oportunidades.</p>
+        </div>
+        <button class="btn-primary" onclick="simularRecomendacionIA()" id="btnIA">✨ Ver sugerencias IA</button>
+      </div>
+      <div class="ia-output" id="iaOutput" aria-live="polite" style="display:none"></div>
+
+      <!-- US29 Filtros por sector -->
+      <div class="filter-bar" role="group" aria-label="Filtrar startups por sector">
+        <span class="filter-label">Filtrar por sector:</span>
+        <button class="filter-btn active" data-sector="todos" onclick="filtrarSector('todos')">Todos</button>
+        <button class="filter-btn" data-sector="fintech" onclick="filtrarSector('fintech')">Fintech</button>
+        <button class="filter-btn" data-sector="healthtech" onclick="filtrarSector('healthtech')">Healthtech</button>
+        <button class="filter-btn" data-sector="edtech" onclick="filtrarSector('edtech')">Edtech</button>
+        <button class="filter-btn" data-sector="agritech" onclick="filtrarSector('agritech')">Agritech</button>
+        <button class="filter-btn" data-sector="logistica" onclick="filtrarSector('logistica')">Logística</button>
+      </div>
+
+      <!-- US28 US31 Tarjetas de startups -->
+      <div class="startups-grid" id="startupsGrid" role="list" aria-label="Lista de startups disponibles">
+
+        <div class="startup-card" data-sector="fintech" role="listitem">
+          <div class="startup-card-header">
+            <div class="startup-avatar" aria-hidden="true">💳</div>
+            <div>
+              <strong>PagoYa</strong>
+              <span class="sector-badge fintech">Fintech</span>
+            </div>
+            <button class="fav-btn" aria-label="Marcar PagoYa como favorita" onclick="toggleFavorito(this)">☆</button>
+          </div>
+          <p class="startup-desc">Plataforma de pagos instantáneos para PYMES en Latinoamérica. Reduce comisiones en 60%.</p>
+          <div class="startup-metrics">
+            <span>📈 ROI est. <strong>32%</strong></span>
+            <span>💰 Busca <strong>S/ 250K</strong></span>
+            <span>📊 Avance <strong>Seed</strong></span>
+          </div>
+          <div class="startup-actions">
+            <button class="btn-secondary small" onclick="seleccionarComparar('PagoYa', 32, 250000, 'Seed')">Comparar</button>
+            <button class="btn-primary small" onclick="contactarStartup('PagoYa')">Contactar</button>
+          </div>
+        </div>
+
+        <div class="startup-card" data-sector="healthtech" role="listitem">
+          <div class="startup-card-header">
+            <div class="startup-avatar" aria-hidden="true">🏥</div>
+            <div>
+              <strong>SaludBot</strong>
+              <span class="sector-badge healthtech">Healthtech</span>
+            </div>
+            <button class="fav-btn" aria-label="Marcar SaludBot como favorita" onclick="toggleFavorito(this)">☆</button>
+          </div>
+          <p class="startup-desc">IA de diagnóstico preventivo para clínicas rurales. 94% de precisión en detección temprana.</p>
+          <div class="startup-metrics">
+            <span>📈 ROI est. <strong>45%</strong></span>
+            <span>💰 Busca <strong>S/ 400K</strong></span>
+            <span>📊 Avance <strong>Series A</strong></span>
+          </div>
+          <div class="startup-actions">
+            <button class="btn-secondary small" onclick="seleccionarComparar('SaludBot', 45, 400000, 'Series A')">Comparar</button>
+            <button class="btn-primary small" onclick="contactarStartup('SaludBot')">Contactar</button>
+          </div>
+        </div>
+
+        <div class="startup-card" data-sector="edtech" role="listitem">
+          <div class="startup-card-header">
+            <div class="startup-avatar" aria-hidden="true">📚</div>
+            <div>
+              <strong>AulaViva</strong>
+              <span class="sector-badge edtech">Edtech</span>
+            </div>
+            <button class="fav-btn" aria-label="Marcar AulaViva como favorita" onclick="toggleFavorito(this)">☆</button>
+          </div>
+          <p class="startup-desc">Plataforma adaptativa de educación K-12 con tutoría IA. 120K usuarios activos en 6 meses.</p>
+          <div class="startup-metrics">
+            <span>📈 ROI est. <strong>28%</strong></span>
+            <span>💰 Busca <strong>S/ 180K</strong></span>
+            <span>📊 Avance <strong>Pre-seed</strong></span>
+          </div>
+          <div class="startup-actions">
+            <button class="btn-secondary small" onclick="seleccionarComparar('AulaViva', 28, 180000, 'Pre-seed')">Comparar</button>
+            <button class="btn-primary small" onclick="contactarStartup('AulaViva')">Contactar</button>
+          </div>
+        </div>
+
+        <div class="startup-card" data-sector="agritech" role="listitem">
+          <div class="startup-card-header">
+            <div class="startup-avatar" aria-hidden="true">🌱</div>
+            <div>
+              <strong>CampoSmart</strong>
+              <span class="sector-badge agritech">Agritech</span>
+            </div>
+            <button class="fav-btn" aria-label="Marcar CampoSmart como favorita" onclick="toggleFavorito(this)">☆</button>
+          </div>
+          <p class="startup-desc">Sensores IoT para monitoreo de cultivos. Reduce pérdidas agrícolas en 40% con datos en tiempo real.</p>
+          <div class="startup-metrics">
+            <span>📈 ROI est. <strong>38%</strong></span>
+            <span>💰 Busca <strong>S/ 320K</strong></span>
+            <span>📊 Avance <strong>Seed</strong></span>
+          </div>
+          <div class="startup-actions">
+            <button class="btn-secondary small" onclick="seleccionarComparar('CampoSmart', 38, 320000, 'Seed')">Comparar</button>
+            <button class="btn-primary small" onclick="contactarStartup('CampoSmart')">Contactar</button>
+          </div>
+        </div>
+
+        <div class="startup-card" data-sector="logistica" role="listitem">
+          <div class="startup-card-header">
+            <div class="startup-avatar" aria-hidden="true">🚚</div>
+            <div>
+              <strong>RouteX</strong>
+              <span class="sector-badge logistica">Logística</span>
+            </div>
+            <button class="fav-btn" aria-label="Marcar RouteX como favorita" onclick="toggleFavorito(this)">☆</button>
+          </div>
+          <p class="startup-desc">Optimización de rutas de última milla con IA. Reduce costos logísticos en 25% para e-commerce.</p>
+          <div class="startup-metrics">
+            <span>📈 ROI est. <strong>41%</strong></span>
+            <span>💰 Busca <strong>S/ 290K</strong></span>
+            <span>📊 Avance <strong>Series A</strong></span>
+          </div>
+          <div class="startup-actions">
+            <button class="btn-secondary small" onclick="seleccionarComparar('RouteX', 41, 290000, 'Series A')">Comparar</button>
+            <button class="btn-primary small" onclick="contactarStartup('RouteX')">Contactar</button>
+          </div>
+        </div>
+
+        <div class="startup-card" data-sector="fintech" role="listitem">
+          <div class="startup-card-header">
+            <div class="startup-avatar" aria-hidden="true">🏦</div>
+            <div>
+              <strong>CreditoYa</strong>
+              <span class="sector-badge fintech">Fintech</span>
+            </div>
+            <button class="fav-btn" aria-label="Marcar CreditoYa como favorita" onclick="toggleFavorito(this)">☆</button>
+          </div>
+          <p class="startup-desc">Microcréditos digitales para independientes sin historial bancario. 15K préstamos aprobados.</p>
+          <div class="startup-metrics">
+            <span>📈 ROI est. <strong>36%</strong></span>
+            <span>💰 Busca <strong>S/ 500K</strong></span>
+            <span>📊 Avance <strong>Series A</strong></span>
+          </div>
+          <div class="startup-actions">
+            <button class="btn-secondary small" onclick="seleccionarComparar('CreditoYa', 36, 500000, 'Series A')">Comparar</button>
+            <button class="btn-primary small" onclick="contactarStartup('CreditoYa')">Contactar</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- US34 Comparar proyectos -->
+      <div class="card comparar-card" id="compararSection" style="display:none">
+        <div class="card-header">
+          <h3>Comparar proyectos</h3>
+          <span class="card-badge">US34</span>
+        </div>
+        <div id="compararContent" aria-live="polite"></div>
+      </div>
+
+    </div>
+
+    <!-- ====================================================== -->
+    <!-- PANEL 6: CHAT Y REUNIONES (US40-US42, US45)            -->
+    <!-- ====================================================== -->
+    <div class="tab-panel" id="panel-chat" role="tabpanel" aria-labelledby="tab-chat">
+      <div class="panel-intro">
+        <h2>Comunicación y networking</h2>
+        <p>Agenda reuniones, envía invitaciones y comunícate directamente con inversores.</p>
+        <div class="us-tags" aria-label="Historias de usuario cubiertas">
+          <span class="us-tag">US40 Agendar reuniones</span>
+          <span class="us-tag">US41 Enviar invitaciones</span>
+          <span class="us-tag">US42 Chat interno</span>
+          <span class="us-tag">US45 Mensajería cifrada</span>
+        </div>
+      </div>
+
+      <div class="chat-layout">
+        <!-- US40 Agendar reunión -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Agendar reunión</h3>
+            <span class="card-badge">US40</span>
+          </div>
+          <form id="reunionForm" novalidate aria-label="Formulario para agendar una reunión">
+            <div class="form-group">
+              <label for="reunionContacto">Inversor / Emprendedor</label>
+              <select id="reunionContacto" aria-label="Seleccionar contacto para la reunión">
+                <option value="">Selecciona un contacto...</option>
+                <option value="Carlos Mendoza - Inversor Ángel">Carlos Mendoza - Inversor Ángel</option>
+                <option value="María Ríos - VC Partners">María Ríos - VC Partners</option>
+                <option value="Diego Torres - Seed Fund Peru">Diego Torres - Seed Fund Peru</option>
+                <option value="Ana Gutiérrez - Family Office">Ana Gutiérrez - Family Office</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="reunionFecha">Fecha <span class="required" aria-hidden="true">*</span></label>
+                <input type="date" id="reunionFecha" required aria-required="true">
+              </div>
+              <div class="form-group">
+                <label for="reunionHora">Hora <span class="required" aria-hidden="true">*</span></label>
+                <input type="time" id="reunionHora" required aria-required="true">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="reunionModelo">Modalidad</label>
+              <select id="reunionModelo" aria-label="Modalidad de la reunión">
+                <option value="virtual">Virtual (Zoom / Meet)</option>
+                <option value="presencial">Presencial</option>
+                <option value="hibrida">Híbrida</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="reunionNota">Nota / agenda</label>
+              <textarea id="reunionNota" rows="2" placeholder="Describe el propósito de la reunión..." maxlength="200"></textarea>
+            </div>
+            <div class="form-actions">
+              <!-- US41 Enviar invitación -->
+              <button type="button" class="btn-secondary" onclick="enviarInvitacion()">📨 Enviar invitación</button>
+              <button type="submit" class="btn-primary" onclick="agendarReunion(event)">📅 Agendar</button>
+            </div>
+          </form>
+
+          <!-- Lista de reuniones agendadas -->
+          <div class="reuniones-list" id="reunionesList" aria-live="polite" aria-label="Reuniones agendadas">
+            <h4>Próximas reuniones</h4>
+            <div class="reunion-item">
+              <span class="reunion-icon" aria-hidden="true">📅</span>
+              <div>
+                <strong>Carlos Mendoza</strong>
+                <span>25 Jun 2026 · 10:00 am · Virtual</span>
+              </div>
+              <span class="reunion-status confirmed" aria-label="Estado: confirmada">Confirmada</span>
+            </div>
+            <div class="reunion-item">
+              <span class="reunion-icon" aria-hidden="true">📅</span>
+              <div>
+                <strong>María Ríos</strong>
+                <span>28 Jun 2026 · 3:00 pm · Presencial</span>
+              </div>
+              <span class="reunion-status pending" aria-label="Estado: pendiente">Pendiente</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- US42 Chat interno + US45 Mensajería cifrada -->
+        <div class="card chat-card">
+          <div class="card-header">
+            <h3>Chat interno</h3>
+            <div class="chat-header-badges">
+              <span class="card-badge">US42</span>
+              <!-- US45 Cifrado -->
+              <span class="cipher-badge" id="cipherBadge" aria-label="Mensajería cifrada activa" title="Cifrado de extremo a extremo activado">
+                🔒 Cifrado activado
+              </span>
+            </div>
+          </div>
+
+          <div class="chat-contact-selector">
+            <label for="chatContacto">Chatear con:</label>
+            <select id="chatContacto" aria-label="Seleccionar contacto del chat">
+              <option value="Carlos Mendoza">Carlos Mendoza (Inversor)</option>
+              <option value="María Ríos">María Ríos (Inversora)</option>
+              <option value="Diego Torres">Diego Torres (Inversor)</option>
+            </select>
+          </div>
+
+          <div class="chat-window" id="chatWindow" role="log" aria-live="polite" aria-label="Mensajes del chat">
+            <div class="chat-msg received">
+              <span class="msg-avatar" aria-hidden="true">CM</span>
+              <div class="msg-bubble">
+                <span class="msg-sender">Carlos Mendoza</span>
+                <p>Hola, vi la presentación de tu startup en el Demo Day. ¡Interesante propuesta!</p>
+                <span class="msg-time">10:05 am</span>
+              </div>
+            </div>
+            <div class="chat-msg sent">
+              <div class="msg-bubble">
+                <p>Muchas gracias Carlos. ¿Le gustaría coordinar una reunión para profundizar en los números?</p>
+                <span class="msg-time">10:07 am</span>
+              </div>
+            </div>
+            <div class="chat-msg received">
+              <span class="msg-avatar" aria-hidden="true">CM</span>
+              <div class="msg-bubble">
+                <span class="msg-sender">Carlos Mendoza</span>
+                <p>Por supuesto. ¿Qué fechas le vienen bien esta semana?</p>
+                <span class="msg-time">10:09 am</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="chat-input-bar" role="form" aria-label="Enviar mensaje">
+            <span class="cipher-icon" aria-label="Mensajería cifrada activa" title="Mensajería cifrada">🔒</span>
+            <input type="text" id="chatInput" placeholder="Escribe un mensaje..." aria-label="Escribe tu mensaje" maxlength="300" onkeydown="if(event.key==='Enter')enviarMensaje()">
+            <button class="btn-primary" onclick="enviarMensaje()" aria-label="Enviar mensaje">Enviar ➤</button>
+          </div>
+          <p class="cipher-note" aria-hidden="true">🔒 Este chat usa cifrado de extremo a extremo. Tus mensajes son privados.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== CTA FINAL ===== -->
+  <section class="cta-section" aria-labelledby="cta-title">
+    <h2 id="cta-title">¿Listo para impulsar tu startup?</h2>
+    <p>Crea tu cuenta gratuita y accede a todos los módulos de EventIApp sin restricciones.</p>
+    <div class="cta-buttons">
+      <a href="../pages/auth/register.html" class="btn-primary large">Crear cuenta gratis</a>
+      <a href="../pages/auth/login.html" class="btn-secondary large">Ya tengo cuenta</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer role="contentinfo">
+    <div class="footer-content">
+      <div class="footer-col">
+        <img src="../assets/images/Imagotipo.png" alt="EventIApp" height="36">
+        <p>La plataforma que conecta emprendedores e inversores para crear eventos, impulsar startups y generar oportunidades.</p>
+      </div>
+      <div class="footer-col">
+        <strong>Contacto</strong>
+        <a href="mailto:contacto@eventiapp.pe">📧 contacto@eventiapp.pe</a>
+        <a href="tel:+51999988777">📞 +51 999 988 777</a>
+        <span>📍 San Isidro, Lima, Perú</span>
+      </div>
+      <div class="footer-col">
+        <strong>Recursos</strong>
+        <a href="../pages/contacto/contacto.html">Soporte técnico</a>
+        <a href="#">Documentación</a>
+        <a href="#">Términos y condiciones</a>
+      </div>
+      <div class="footer-col">
+        <strong>Síguenos</strong>
+        <div class="footer-social" aria-label="Redes sociales">
+          <a href="#" aria-label="Facebook de EventIApp">
+            <img src="../assets/icons/Facebook.png" alt="Facebook" width="32">
+          </a>
+          <a href="#" aria-label="X (Twitter) de EventIApp">
+            <img src="../assets/icons/X.png" alt="X" width="32">
+          </a>
+          <a href="#" aria-label="LinkedIn de EventIApp">
+            <img src="../assets/icons/LinkedIn.png" alt="LinkedIn" width="32">
+          </a>
+          <a href="#" aria-label="Instagram de EventIApp">
+            <img src="../assets/icons/Instagram.png" alt="Instagram" width="32">
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 EventIApp. Todos los derechos reservados. EventIApp no comparte información personal identificable sin consentimiento explícito.
+        <a href="#">Política de Privacidad</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===== TOAST NOTIFICATIONS ===== -->
+  <div class="toast-container" id="toastContainer" role="status" aria-live="polite"></div>
+
+  <script src="demo.js"></script>
+</body>
+</html>

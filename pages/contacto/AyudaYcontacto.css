@@ -1,0 +1,495 @@
+html{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(to right, #e67411, #08ffff);
+    opacity: 0.07;
+    z-index: 10;
+    pointer-events: none;
+}
+
+body .Fondo{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+header{
+    top: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    width: 100%;
+    z-index: 12;
+}
+
+header div{
+    width: 1250px;
+    margin: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 50px;
+    background: linear-gradient(to right, #FFD0BF, #C7EDFF);
+}
+
+header div img{
+    margin: 10px;
+}
+
+@media (min-width: 1200px){
+    header div .hamburguesa{
+        display: none;
+    }
+    header div .opciones{
+        display: flex;
+        gap: 50px;
+        width: fit-content;
+        padding: 0;
+        white-space: nowrap;
+    }
+
+    header div ul .texto{
+        display: flex;
+        text-align: center;
+        align-items: center;
+        padding: 0;
+        gap: 42px;
+        font-family: "Lora";
+        font-size: 18px;
+    }
+
+    header div ul .texto :hover{
+        transition: 0.3s ease;
+        background: #00000010;
+    }
+
+    header div ul .texto a{
+        border-radius: 10px;
+        padding: 9px;
+        font-weight: 600;
+        text-decoration: none;
+        color: #3A3A3A;
+    }
+
+    header div ul .texto .now{
+        text-decoration: underline;
+        font-weight: 700;
+        text-shadow: 0px 4px 4px rgb(133, 130, 130);
+    }
+
+    header div ul .botones {
+        display: flex;;
+        align-items: center;
+        column-gap: 25px;
+        padding: 0;
+    }
+
+    header div ul .botones .log button{
+        font-family: "Lora";
+        background-color: #7ED1FF;
+        padding: 10px 15px;
+        border-radius: 25px;
+        border: 2px solid #0071B1;
+        font-weight: 900;
+        font-size: 17px;
+    }
+
+    header div ul .botones .log button:hover{
+        transition: 0.3s ease;
+        box-shadow: 0px 0px  15px #6693ad;
+        cursor: pointer;
+    }
+
+    header div ul .botones .reg button{
+        font-family: "Lora";
+        background-color: #FFC872;
+        padding: 10px 15px;
+        border-radius: 25px;
+        border: 2px solid #D48100;
+        font-weight: 9000;
+        font-size: 17px;
+    }
+
+    header div ul .botones .reg button:hover{
+    transition: 0.3s ease;
+        box-shadow: 0px 0px  15px #e7a832;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 1200px){
+    header div .opciones{
+        display: none;
+    }
+
+    header div .hamburguesa .desplegar {
+        display: flex;
+        flex-wrap: wrap;
+        width: fit-content;
+        position: absolute;
+        background: linear-gradient(to top, #FFD0BF, #C7EDFF);;
+        top: 110px;
+        right: 0;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        justify-content: center;
+        column-gap: 10px;
+    }
+
+    header div .hamburguesa .desplegar a{
+        font-family: "Lora";
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding: 8px;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 18px;
+        text-decoration: none;
+        color: #3A3A3A;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    header div .hamburguesa .desplegar a:not(.log):not(.reg):hover{
+        transition: 0.3s ease;
+        background: #00000020;
+    }
+
+    header div .hamburguesa .desplegar .now{
+        text-decoration: underline;
+        font-weight: 700;
+        text-shadow: 0px 4px 4px rgb(133, 130, 130);
+    }
+
+
+    header div .hamburguesa .desplegar .log{
+        font-family: "Lora";
+        background-color: #7ED1FF;
+        padding: 10px 15px;
+        border-radius: 25px;
+        border: 2px solid #0071B1;
+        color: #000000;
+        font-weight: 900;
+        font-size: 17px;
+    }
+
+    header div .hamburguesa .desplegar .log:hover{
+        transition: 0.3s ease;
+        box-shadow: 0px 0px 20px #6ac1f3;
+    }
+
+    header div .hamburguesa .desplegar .reg{
+        font-family: "Lora";
+        background-color: #FFC872;
+        padding: 10px 15px;
+        border-radius: 25px;
+        border: 2px solid #ec9d1c;
+        color: #000000;
+        font-weight: 900;
+        font-size: 17px;
+    }
+
+    header div .hamburguesa .desplegar .reg:hover{
+        transition: 0.3s ease;
+        box-shadow: 0px 0px 20px #ecb622;
+    }
+
+    header div .hamburguesa summary{
+        list-style: none;
+        font-size: 30px;
+        font-weight: 900;
+        padding: 10px;
+        width: fit-content;
+    }
+
+    header div .hamburguesa summary:hover{
+        cursor: pointer;
+    }
+
+    @media (max-width:500px){
+        header div img{
+            width: 120px;
+            height: 45px;
+        }
+        header div .hamburguesa .desplegar a{
+            font-size: 10px;
+            margin: 2px;
+            padding: 2px;
+        }
+        
+        header div .hamburguesa .desplegar .log{
+            font-size: 10px;
+            padding: 4px;
+        }
+
+        header div .hamburguesa .desplegar .reg{
+            font-size: 10px;
+            padding: 4px;
+        }
+
+        header div .hamburguesa .desplegar {
+            top: 95px;
+        }
+    }    
+}
+
+#div1{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+}
+
+#div1 .Horarios{
+    display: flex;
+    flex-direction: column;
+    row-gap: 76px;
+    max-width: 1500px;
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+#div1 .Horarios .Titulo{
+    display: flex;
+    align-items: center;
+    column-gap: 50px; 
+}
+
+#div1 .Horarios .Titulo p{
+    text-wrap: wrap;
+    font-family: "Lora";
+    @media (min-width:600px){
+        font-size: 70px;
+    }
+    @media (max-width:600px){
+        font-size: 48px;
+    }
+    font-weight: 700;
+    margin: 0;
+}
+
+#div1 .Horarios .Contenido{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 100px;
+    column-gap: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#div1 .Horarios .Contenido .Fecha p{
+    font-family: "Lora";
+    font-size: 25px;
+    font-weight: 600;
+    margin: 0;
+}
+
+#div1 .Horarios .Contenido .Ubicacion{
+    display: flex;
+    align-items: center;
+    height: fit-content;
+    column-gap: 30px;
+}
+
+#div1 .Horarios .Contenido .Ubicacion p{
+    font-family: "Lora";
+    font-size: 25px;
+    font-weight: 600;
+    margin: 0;
+}
+
+#div1 .Canales{
+    display: flex;
+    flex-direction: column;
+    row-gap: 76px;
+    max-width: 1500px;
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+#div1 .Canales .Titulo{
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+    width: fit-content;
+}
+
+#div1 .Canales .Titulo p{
+    font-family: "Lora";
+    @media (min-width:600px){
+        font-size: 70px;
+    }
+    @media (max-width:600px){
+        font-size: 48px;
+    }
+    font-weight: 700;
+    margin: 0;
+}
+
+#div1 .Canales .Contenido{
+    display: flex;
+    flex-direction: row ;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 50px;
+    margin-right: 50px;
+    row-gap: 100px;
+    column-gap: 50px;
+}
+
+#div1 .Canales .Contenido .Numeros{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#div1 .Canales .Contenido .Numeros .Contenedor{
+    display: flex;
+    align-items: center;
+    column-gap: 68px;
+}
+
+#div1 .Canales .Contenido .Numeros p{
+    @media (min-width:600px){
+        font-size: 36px;
+    }
+    @media (max-width:600px){
+        font-size: 16px;
+    }
+    font-weight: 700;
+}
+
+#div1 .Canales .Contenido .CorreosIconos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+#div1 .Canales .Contenido .CorreosIconos .Correos .Contenedor{
+    display: flex;
+    align-items: center;
+    column-gap: 68px;
+}
+
+#div1 .Canales .Contenido .CorreosIconos .Correos p{
+    font-family: "Lora";
+    @media (min-width:600px){
+        font-size: 36px;
+    }
+    @media (max-width:600px){
+        font-size: 16px;
+    }
+    font-weight: 600;
+}
+
+#div1 .Canales .Contenido .CorreosIconos .Iconos{
+    display: flex;
+    column-gap: 80px;
+    row-gap: 80px;
+    align-items: center;
+    margin-top: 120px;
+    margin-bottom: 120px;
+    flex-wrap: wrap;
+}
+
+#div1 .Recursos{
+    display: flex;
+    flex-direction: column;
+    row-gap: 76px;
+    max-width: 1500px;
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+#div1 .Recursos .Titulo{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 50px;
+}
+
+#div1 .Recursos .Titulo p{
+    font-family: "Lora";
+    @media (min-width:600px){
+        font-size: 70px;
+    }
+    @media (max-width:600px){
+        font-size: 46px;
+    }
+    font-weight: 700;
+    margin: 0;
+}
+
+#div1 .Recursos .Contenido{
+    display: flex;
+    flex-direction: row ;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 50px;
+    margin-right: 50px;
+    row-gap: 100px;
+    column-gap: 50px;
+}
+
+#div1 .Recursos .Contenido a{
+    padding: 50px;
+    font-family: "Lora";
+    font-size: 25px;
+    font-weight: 700;
+    color: #000000;
+}
+
+footer{
+    z-index: 11;
+    position: relative;
+    background: #303030;
+    width: 100%;
+    padding-top: 69px;
+}
+
+footer .Copyright{
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-bottom: 20px;
+}
+
+footer .Copyright p{
+    width: fit-content;
+    @media (min-width: 1300px){
+        font-size: 22px;
+    }
+    @media (max-width: 1300px) and (min-width: 1000px){
+        font-size: 18px;
+    }
+    @media (max-width:1000px){
+        font-size: 14px;
+    }
+    font-family: "Lora";
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+footer .Copyright a{
+    color: #2BAEFF;
+}

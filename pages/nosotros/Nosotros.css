@@ -1,0 +1,954 @@
+html{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(to right, #e67411, #08ffff);
+    opacity: 0.07;
+    z-index: 10;
+    pointer-events: none;
+}
+
+body .Fondo{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+header{
+    top: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    width: 100%;
+    z-index: 12;
+}
+
+header div{
+    width: 1250px;
+    margin: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 50px;
+    background: linear-gradient(to right, #FFD0BF, #C7EDFF);
+}
+
+header div img{
+    margin: 10px;
+}
+
+@media (min-width: 1200px){
+    header div .hamburguesa{
+        display: none;
+    }
+    header div .opciones{
+        display: flex;
+        gap: 50px;
+        width: fit-content;
+        padding: 0;
+        white-space: nowrap;
+    }
+
+    header div ul .texto{
+        display: flex;
+        text-align: center;
+        align-items: center;
+        padding: 0;
+        gap: 42px;
+        font-family: "Lora";
+        font-size: 18px;
+    }
+
+    header div ul .texto :hover{
+        transition: 0.3s ease;
+        background: #00000010;
+    }
+
+    header div ul .texto a{
+        border-radius: 10px;
+        padding: 9px;
+        font-weight: 600;
+        text-decoration: none;
+        color: #3A3A3A;
+    }
+
+    header div ul .texto .now{
+        text-decoration: underline;
+        font-weight: 700;
+        text-shadow: 0px 4px 4px rgb(133, 130, 130);
+    }
+
+    header div ul .botones {
+        display: flex;;
+        align-items: center;
+        column-gap: 25px;
+        padding: 0;
+    }
+
+    header div ul .botones .log button{
+        font-family: "Lora";
+        background-color: #7ED1FF;
+        padding: 10px 15px;
+        border-radius: 25px;
+        border: 2px solid #0071B1;
+        font-weight: 900;
+        font-size: 17px;
+    }
+
+    header div ul .botones .log button:hover{
+        transition: 0.3s ease;
+        box-shadow: 0px 0px  15px #6693ad;
+        cursor: pointer;
+    }
+
+    header div ul .botones .reg button{
+        font-family: "Lora";
+        background-color: #FFC872;
+        padding: 10px 15px;
+        border-radius: 25px;
+        border: 2px solid #D48100;
+        font-weight: 9000;
+        font-size: 17px;
+    }
+
+    header div ul .botones .reg button:hover{
+    transition: 0.3s ease;
+        box-shadow: 0px 0px  15px #e7a832;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 1200px){
+    header div .opciones{
+        display: none;
+    }
+
+    header div .hamburguesa .desplegar {
+        display: flex;
+        flex-wrap: wrap;
+        width: fit-content;
+        position: absolute;
+        background: linear-gradient(to top, #FFD0BF, #C7EDFF);;
+        top: 110px;
+        right: 0;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        justify-content: center;
+        column-gap: 10px;
+    }
+
+    header div .hamburguesa .desplegar a{
+        font-family: "Lora";
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding: 8px;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 18px;
+        text-decoration: none;
+        color: #3A3A3A;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    header div .hamburguesa .desplegar a:not(.log):not(.reg):hover{
+        transition: 0.3s ease;
+        background: #00000020;
+    }
+
+    header div .hamburguesa .desplegar .now{
+        text-decoration: underline;
+        font-weight: 700;
+        text-shadow: 0px 4px 4px rgb(133, 130, 130);
+    }
+
+
+    header div .hamburguesa .desplegar .log{
+        font-family: "Lora";
+        background-color: #7ED1FF;
+        padding: 10px 15px;
+        border-radius: 25px;
+        border: 2px solid #0071B1;
+        color: #000000;
+        font-weight: 900;
+        font-size: 17px;
+    }
+
+    header div .hamburguesa .desplegar .log:hover{
+        transition: 0.3s ease;
+        box-shadow: 0px 0px 20px #6ac1f3;
+    }
+
+    header div .hamburguesa .desplegar .reg{
+        font-family: "Lora";
+        background-color: #FFC872;
+        padding: 10px 15px;
+        border-radius: 25px;
+        border: 2px solid #ec9d1c;
+        color: #000000;
+        font-weight: 900;
+        font-size: 17px;
+    }
+
+    header div .hamburguesa .desplegar .reg:hover{
+        transition: 0.3s ease;
+        box-shadow: 0px 0px 20px #ecb622;
+    }
+
+    header div .hamburguesa summary{
+        list-style: none;
+        font-size: 30px;
+        font-weight: 900;
+        padding: 10px;
+        width: fit-content;
+    }
+
+    header div .hamburguesa summary:hover{
+        cursor: pointer;
+    }
+
+    @media (max-width:500px){
+        header div img{
+            width: 120px;
+            height: 45px;
+        }
+        header div .hamburguesa .desplegar a{
+            font-size: 10px;
+            margin: 2px;
+            padding: 2px;
+        }
+        
+        header div .hamburguesa .desplegar .log{
+            font-size: 10px;
+            padding: 4px;
+        }
+
+        header div .hamburguesa .desplegar .reg{
+            font-size: 10px;
+            padding: 4px;
+        }
+
+        header div .hamburguesa .desplegar {
+            top: 95px;
+        }
+    }    
+}
+
+#div1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background: linear-gradient(to bottom, #FFFFFF00, #F7FFE3);
+}
+
+#div1 .Texto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    justify-content: space-between;
+    margin-top: 104px;
+    margin-bottom: 104px;
+}
+
+#div1 .Texto .Titulo{
+    font-family: "Lora";
+    font-size: 80px;
+    font-weight: 900;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+#div1 .Texto .Parrafo{
+    font-family: "Lora";
+    @media (min-width: 1000px){
+        font-size: 36px;
+    }
+    @media (max-width:1000px){
+        font-size: 26px;
+    }
+    font-weight: 500;
+    text-align: center;
+    max-width: 1060px;
+    padding: 0;
+    margin: 60px;
+    margin-bottom: 10px;
+}
+
+#div1 .Proposito{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 100px;
+}
+
+#div1 .Contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #FFFFFF;
+    margin: 30px;
+    padding: 50px;
+    border-radius: 50px;
+    box-shadow: 0px 8px 20px #3A3A3A;
+}
+
+#div1 .Proposito .Contenedor .Head{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#div1 .Proposito .Contenedor .Head p{
+    font-family: "Lora";
+    @media (min-width:1000px){
+        font-size: 54px;
+    }
+    @media (max-width:1000px){
+        font-size: 36px;
+    }
+    font-weight: 600;
+    padding: 0;
+    margin: 5px;
+}
+
+#div1 .Proposito .Contenedor .Head img{
+    margin: 20px;
+}
+
+#div1 .Proposito .Contenedor .Parrafo{
+    font-family: "Lora";
+    @media (min-width:1000px){
+        font-size: 28px;
+    }
+    @media (max-width:1000px){
+        font-size: 16px;
+    }
+    font-weight: 500;
+    text-align: center;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+}
+
+#div2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#div2 .Texto2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media (min-width:1200px){
+        padding: 50px;
+    }
+    @media (max-width:1200px) and (min-width:800px){
+        padding: 40px;
+    }
+    @media (max-width:800px){
+        padding: 30px;
+    }
+    margin: 160px;
+    border-radius: 50px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 10px #00000070;
+}
+
+#div2 .Texto2 .Titulo{
+    display: flex;
+    align-items: center;
+}
+
+#div2 .Texto2 .Titulo p{
+    font-family: "Lora";
+    @media (min-width:1200px){
+        font-size: 80px;
+    }
+    @media (max-width:1200px) and (min-width:800px){
+        font-size: 36px;
+    }
+    @media (max-width:800px){
+        font-size: 24x;
+    }
+    font-weight: 700;
+    white-space: nowrap;
+    margin: 0;
+}
+
+#div2 .Texto2 .Titulo img{
+    @media (max-width:800px){
+        width: 100px;
+        height: 88px;
+    }
+}
+
+#div2 .Texto2 .Parrafo{
+    font-family: "Lora";
+    font-weight: 600;
+    margin: 0;
+    @media (min-width:1200px){
+        font-size: 36px;
+    }
+    @media (max-width:1200px) and (min-width:800px){
+        font-size: 24px;
+    }
+    @media (max-width:800px){
+        font-size: 16x;
+    }
+    max-width: 1174px;
+    margin-top: 40px;
+}
+
+#div2 .Texto2 .Parrafo .E{
+    font-weight: 900;
+    color: #E59500;
+}
+
+#div2 .Texto2 .Parrafo .I{
+    font-weight: 900;
+    color: #14B0CC;
+}
+
+#div2 .Emprendedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background: linear-gradient(to bottom, #FFF0CF, #FFFFFF );
+}
+
+#div2 .Emprendedor .Titulo{
+    font-family: "lora";
+    @media (min-width:800px){
+        font-size: 80px;
+    }
+    @media (max-width:800px){
+        font-size: 48px;
+    }
+    font-weight: 700;
+    color: #F47200;
+    margin: 50px;
+}
+
+#div2 .Emprendedor .Contenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 80px;
+}
+
+#div2 .Emprendedor .Contenedor p{
+    font-family: "Lora";
+    @media (min-width:1100px){
+        font-size: 24px;
+        padding: 84px;
+    }
+    @media (max-width:1100px) and (min-width:700px){
+        font-size: 16px;
+        padding: 56px;
+    }
+    @media (max-width:700px){
+        font-size: 8px;
+        padding: 28px;
+    }
+    color: #FFFFFF;
+    position: relative;
+    z-index: 1;
+    width: 491px;
+    max-width: 35%;
+    margin: 0;
+    margin-right: 40%;
+}
+
+#div2 .Emprendedor .Contenedor p .E{
+    font-weight: 700;
+    color: #eca758;
+}
+
+#div2 .Emprendedor #E2 p{
+    margin-right: 0%;
+    margin-left: 40%;
+}
+
+#div2 .Emprendedor .Contenedor img{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    align-items: center;
+}
+
+#div2 .Inversor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background: linear-gradient(to bottom, #E6F8FF, #FFFFFF);
+}
+
+#div2 .Inversor .Titulo{
+    font-family: "lora";
+    @media (min-width:800px){
+        font-size: 80px;
+    }
+    @media (max-width:800px){
+        font-size: 48px;
+    }
+    font-weight: 700;
+    color: #1690C4;
+    margin: 50px;
+}
+
+#div2 .Inversor .Contenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 80px;
+}
+
+#div2 .Inversor .Contenedor p{
+    font-family: "Lora";
+    @media (min-width:1100px){
+        font-size: 24px;
+        padding: 84px;
+    }
+    @media (max-width:1100px) and (min-width:700px){
+        font-size: 16px;
+        padding: 56px;
+    }
+    @media (max-width:700px){
+        font-size: 8px;
+        padding: 28px;
+    }
+    color: #FFFFFF;
+    position: relative;
+    z-index: 1;
+    width: 491px;
+    max-width: 35%;
+    margin: 0;
+    margin-right: 40%;
+}
+
+#div2 .Inversor .Contenedor p .I{
+    font-weight: 700;
+    color: #17D7F9;
+}
+
+#div2 .Inversor #I2 p{
+    margin-right: 0%;
+    margin-left: 40%;
+}
+
+#div2 .Inversor .Contenedor img{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    align-items: center;
+}
+
+#div3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: linear-gradient(to bottom, #FFFFFF, #FDFFE5);
+}
+
+#div3 .Contenido{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 132px;
+    margin-bottom: 132px;
+    row-gap: 138px;
+    width: fit-content;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+#div3 .Contenido .Texto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+#div3 .Contenido .Texto .Titulo {
+    font-family: "Lora";
+    margin: 0;
+    padding: 0;
+    @media (min-width:600px){
+        font-size: 80px;
+    }
+    @media (max-width:600px){
+        font-size: 56px;
+    }
+    font-weight: 600;
+    margin-bottom: 64px;
+    text-align: center;
+}
+
+#div3 .Contenido .Texto .Parrafo{
+    font-family: "Lora";
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+    @media (min-width:600px){
+        font-size: 30px;
+    }
+    @media (max-width:600px){
+        text-align: center;
+        font-size: 24px;
+    }
+    font-weight: 500;
+    text-align: center;
+}
+
+@media (min-width:600px){
+    #div3 .Contenido .Buscador{
+        background: #FEFEFE;
+        border: 1px solid #989898;
+        border-radius: 10px;
+        display: flex;
+        column-gap: 20px;
+        padding: 15px;
+        width: 100%;
+    }
+
+    #div3 .Contenido .Buscador .Send{
+        margin-left: auto;   
+    }
+
+    #div3 .Contenido .Buscador input{
+        font-family: "Lora";
+        border: none;
+        font-size: 24px;
+        width: 100%;
+    }
+
+    #div3 .Contenido .Buscador input:focus{
+        outline: none;
+    }
+
+    #div3 .Contenido .Opciones{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        row-gap: 51px;
+    }
+
+    #div3 .Contenido .Opciones button{
+        font-family: "Lora";
+        font-size: 24px;
+        font-weight: 400;
+        width: 100%;
+        padding: 26px;
+        text-align: left;
+        border-radius: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+@media (max-width:600px){
+    #div3 .Contenido .Buscador{
+        background: #FEFEFE;
+        border: 1px solid #989898;
+        border-radius: 10px;
+        display: flex;
+        column-gap: 15px;
+        padding: 9px;
+        width: 100%;
+    }
+
+    #div3 .Contenido .Buscador .Send{
+        margin-left: auto;   
+    }
+
+    #div3 .Contenido .Buscador input{
+        font-family: "Lora";
+        border: none;
+        font-size: 12px;
+        width: 100%;
+    }
+
+    #div3 .Contenido .Buscador input:focus{
+        outline: none;
+    }
+
+    #div3 .Contenido .Buscador img{
+        width: 24px;
+        height: 24px;
+    }
+
+    #div3 .Contenido .Opciones{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        row-gap: 31px;
+    }
+
+    #div3 .Contenido .Opciones button{
+        font-family: "Lora";
+        font-size: 12px;
+        font-weight: 400;
+        width: 100%;
+        padding: 16px;
+        text-align: left;
+        border-radius: 10px;
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+    #div3 .Contenido{
+        row-gap: 100px;
+    }
+}
+
+footer{
+    z-index: 11;
+    position: relative;
+    background: #303030;
+    width: 100%;
+    padding-top: 69px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer .Contenido{
+    display: flex;
+    width: fit-content;
+    justify-content: center;
+    margin-bottom: 69px;
+    flex-wrap: wrap;
+    column-gap: 138px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+footer .Contacto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-size: 1px;
+}
+
+footer .Contacto .Titulo{
+    font-family: "Lora";
+    font-weight: 600;
+    @media (min-width:700px){
+       font-size: 45px; 
+    }
+    @media (max-width:700px){
+        font-size: 27px;
+    }
+    color: #FFFFFF;
+    margin: 0;
+    margin-bottom: 80px;
+}
+
+footer .Contacto .Correo{
+    align-items: center;
+    width: 100%;
+    display: flex;
+    column-gap: 45px;
+    font-family: "Lora";
+    color: #FFFFFF;
+    @media (min-width:700px){
+       font-size: 25px; 
+    }
+    @media (max-width:700px){
+        font-size: 15px;
+    }
+    margin-bottom: 28px;
+}
+
+footer .Contacto .Celular{
+    align-items: center;
+    display: flex;
+    width: 100%;
+    column-gap: 45px;
+    font-family: "Lora";
+    color: #FFFFFF;
+    @media (min-width:700px){
+       font-size: 25px; 
+    }
+    @media (max-width:700px){
+        font-size: 15px;
+    }
+    margin-top: 28px;
+    margin-bottom: 28px;
+}
+
+footer .Contacto .Telefono{
+    align-items: center;
+    display: flex;
+    width: 100%;
+    column-gap: 45px;
+    font-family: "Lora";
+    color: #FFFFFF;
+    @media (min-width:700px){
+       font-size: 25px; 
+    }
+    @media (max-width:700px){
+        font-size: 15px;
+    }
+    margin-top: 28px;
+    margin-bottom: 28px;
+}
+
+footer .Contacto .Ubicacion{
+    align-items: center;
+    display: flex;
+    width: 100%;
+    column-gap: 45px;
+    font-family: "Lora";
+    color: #FFFFFF;
+    @media (min-width:700px){
+       font-size: 25px; 
+    }
+    @media (max-width:700px){
+        font-size: 15px;
+    }
+    margin-top: 28px;
+    margin-bottom: 28px;
+}
+
+@media (max-width:700px){
+    footer .Contenido .Contacto .Correo img{
+        width: 27px;
+        height: 27px;
+    }
+
+    footer .Contenido .Contacto .Celular img{
+        width: 28.8px;
+        height: 28.8px;
+    } 
+
+    footer .Contenido .Contacto .Telefono img{
+        width: 30px;
+        height: 30px;
+    } 
+
+    footer .Contenido .Contacto .Ubicacion img{
+        width: 30px;
+        height: 34.8px;
+    } 
+}
+
+footer .Recursos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer .Recursos .Titulo{
+    font-family: "Lora";
+    font-weight: 600;
+    font-size: 45px;
+    color: #FFFFFF;
+    margin: 0;
+    margin-bottom: 80px;
+}
+
+footer .Recursos .Contenido{
+    display: flex;
+    flex-direction: column;
+    row-gap: 154px;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+footer .Recursos .Contenido a{
+    font-weight: 500;
+    font-size: 25px;
+    color: #FFFFFF;
+}
+
+footer .Recursos .Contenido a p{
+    padding: 0;
+    margin: 0;
+}
+
+footer .Siguenos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+}
+
+footer .Siguenos .Titulo{
+    font-family: "Lora";
+    font-weight: 600;
+    font-size: 45px;
+    color: #FFFFFF;
+    margin: 0;
+    margin-bottom: 80px;
+}
+
+footer .Siguenos .Iconos{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 180px;
+    gap:60px;
+}
+
+footer .Copyright{
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-bottom: 20px;
+}
+
+footer .Copyright p{
+    width: fit-content;
+    @media (min-width: 1300px){
+        font-size: 22px;
+    }
+    @media (max-width: 1300px) and (min-width: 1000px){
+        font-size: 18px;
+    }
+    @media (max-width:1000px){
+        font-size: 14px;
+    }
+    font-family: "Lora";
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+footer .Copyright a{
+    color: #2BAEFF;
+}
